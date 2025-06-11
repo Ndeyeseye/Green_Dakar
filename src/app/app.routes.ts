@@ -34,6 +34,21 @@ export const routes: Routes = [
     path: 'evenements',
     loadComponent: () => import('./evenements/evenements.page').then( m => m.EvenementsPage)
   },
+   
 ]
-}
+},
+ {
+    path: 'intervention',
+    loadComponent: () => import('./intervention/intervention.page').then( m => m.InterventionPage)
+  },
+  {
+    path: 'ONG/accueil',
+    loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
+  },
+  {
+    path: 'mairie/accueil',
+    loadComponent: () => import('./mairie/accueil/accueil.page').then( m => m.AccueilPage)
+  }
+
+
 ];

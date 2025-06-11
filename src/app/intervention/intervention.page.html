@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="success" class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'Précédent'" defaultHref="/tabs/accueil"></ion-back-button>
+    </ion-buttons>
+    <!-- <ion-title>Planifier une intervention</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding custom-background">
+
+  <ion-card class="form-card">
+    <ion-card-header>
+      <ion-card-title class="section-title">Détails de l'intervention</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="card-content">
+
+      <ion-item class="form-item">
+        <ion-label color="green" position="stacked" >Zone à intervenir</ion-label>
+        <ion-select [(ngModel)]="intervention.zone" interface="popover" class="custom-select">
+          <ion-select-option *ngFor="let zone of zonesDisponibles" [value]="zone">
+            {{ zone.nom }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="stacked">Type d’intervention</ion-label>
+        <ion-select [(ngModel)]="intervention.type" class="custom-select">
+          <ion-select-option value="nettoyage">Nettoyage</ion-select-option>
+          <ion-select-option value="désinfection">Désinfection</ion-select-option>
+          <ion-select-option value="collecte">Collecte d’ordures</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="form-item">
+  <ion-label position="stacked" color="green">Date de l'intervention</ion-label>
+  <ion-datetime 
+    presentation="date" 
+    [(ngModel)]="intervention.date" 
+    class="custom-datetime"
+    color="dark">
+  </ion-datetime>
+</ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="stacked">Partenaires impliqués</ion-label>
+        <ion-input [(ngModel)]="intervention.partenaires" placeholder="Ex: ONG CleanDakar" class="custom-input"></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="stacked">Remarques</ion-label>
+        <ion-textarea [(ngModel)]="intervention.remarques" placeholder="Ajouter une remarque..." class="custom-textarea"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="success" (click)="validerIntervention()" class="action-button text-white">
+  Valider et planifier
+</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,10 +1,8 @@
-/* Variables de couleur */
 :root {
-  --green-dakar: #2E7D32;  // Vert foncé élégant
-  --green-light: #E8F5E9;   // Vert très clair pour fonds
+  --green-dakar: #2E7D32;
+  --green-light: #E8F5E9;
 }
 
-/* Thème personnalisé */
 ion-toolbar[color="green-dakar"] {
   --background: var(--green-dakar);
   --color: white;
@@ -19,7 +17,7 @@ ion-toolbar[color="green-dakar"] {
   padding: 20px;
   text-align: center;
   img {
-    max-width: 50%;
+    max-width: 60%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
@@ -29,15 +27,14 @@ ion-toolbar[color="green-dakar"] {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(8, 183, 17, 0.1);
   margin: 16px;
-  background-color: #2E7D32;
+  background-color: var(--green-dakar);
 
   .main-title {
     font-weight: 600;
-    color: var(--green-dakar);
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #E8F5E9;
+    color: var(--green-light);
   }
 }
 
@@ -68,18 +65,5 @@ ion-toolbar[color="green-dakar"] {
     ion-icon {
       font-size: 1.2rem;
     }
-  }
-}
-
-.action-button {
-  --box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
-  font-weight: 600;
-  height: 50px;
-  margin: 16px;
-
-  ion-icon {
-    font-size: 1.4rem;
-    margin-right: 8px;
-    color: #E8F5E9;
   }
 }

@@ -1,0 +1,137 @@
+// :root {
+//   --green-dakar: #2E7D32;
+//   --green-light: #E8F5E9;
+// }
+
+// ion-toolbar[color="green-dakar"] {
+//   --background: var(--green-dakar);
+//   --color: white;
+// }
+
+// .custom-background {
+//   --background: white;
+//   background: white;
+// }
+
+// .header-image {
+//   padding: 20px;
+//   text-align: center;
+//   img {
+//     max-width: 60%;
+//     border-radius: 8px;
+//     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+//   }
+// }
+
+// .custom-card {
+//   border-radius: 12px;
+//   box-shadow: 0 4px 12px rgba(8, 183, 17, 0.1);
+//   margin: 16px;
+//   background-color: var(--green-dakar);
+
+//   .main-title {
+//     font-weight: 600;
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     color: var(--green-light);
+//   }
+// }
+
+// .custom-list {
+//   background: transparent;
+//   color: #2E7D32;
+
+//   .custom-item {
+//     --background: var(--green-light);
+//     border-radius: 8px;
+//     margin-bottom: 8px;
+//     --padding-start: 12px;
+//     --padding-end: 12px;
+//     color:#2E7D32;
+
+//     ion-icon {
+//       font-size: 1.2rem;
+//     }
+//   }
+// }
+
+// .action-buttons {
+//   padding: 0 16px 16px;
+
+//   .action-button {
+//     --box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
+//     font-weight: 600;
+//     height: 48px;
+
+//     ion-icon {
+//       font-size: 1.2rem;
+//     }
+//   }
+// }
+.dashboard-content {
+  padding: 16px;
+  background-color: #f5f5f5;
+}
+
+.dashboard-title h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #2e7d32;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  color: #f5f5f5;
+}
+
+.dashboard-card {
+  text-align: center;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  color: green;
+  background-color: #f5f5f5;
+}
+
+.card-icon {
+  font-size: 32px;
+  color: #2e7d32; // Vert foncé
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.card-label {
+  font-size: 14px;
+  color: #666;
+}
+ion-tab-bar {
+  --background: #ffffff;
+  --color: green;
+  --color-selected: #4CAF50;
+  border-top: 1px solid #ddd;
+}
+
+
+
+ion-tab-button {
+  flex-direction: column;
+  font-weight: 500;
+  text-transform: none;
+}
+
+ion-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+card-label{
+    color:#2e7d32;
+}
