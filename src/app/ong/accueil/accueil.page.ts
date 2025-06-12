@@ -41,7 +41,7 @@ import {
     IonList,
     IonItem,
     IonLabel,
-    IonBadge
+    
   ]
 })
 export class AccueilPage implements OnInit {

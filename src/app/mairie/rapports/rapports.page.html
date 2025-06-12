@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="green-dakar">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/accueil"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="rapport-content" color="white">
+
+  <!-- Titre placé au même niveau que le bouton précédent -->
+  <div class="rapport-header">
+    <h2>Liste des rapports</h2>
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let rapport of rapports" button detail>
+      <ion-avatar slot="start">
+        <ion-icon name="document-text-outline" class="rapport-icon"></ion-icon>
+      </ion-avatar>
+
+      <ion-label>
+        <h2>{{ rapport.titre }}</h2>
+        <p>{{ rapport.date }} · {{ rapport.auteur }}</p>
+      </ion-label>
+
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

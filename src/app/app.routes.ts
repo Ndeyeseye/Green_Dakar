@@ -56,10 +56,12 @@ export const routes: Routes = [
     loadComponent: () => import('./mairie/intervention/intervention.page').then( m => m.InterventionPage)
   },
   {
-    path: 'profil',
-    loadComponent: () => import('./mairie/profil/profil.page').then( m => m.ProfilPage)
+  path: 'mairie/rapports',
+    loadComponent: () => import('./mairie/rapports/rapports.page').then( m => m.RapportsPage)
   },
+  
 ]
 },
+
 
 ];

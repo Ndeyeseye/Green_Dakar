@@ -85,10 +85,10 @@ import {
     IonIcon,
     IonCard,
     IonCardContent,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonLabel,
+    // IonTabs,
+    // IonTabBar,
+    // IonTabButton,
+    // IonLabel,
    
   ]
 })
