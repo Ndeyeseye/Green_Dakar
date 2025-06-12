@@ -30,7 +30,7 @@ ion-toolbar[color="green-dakar"] {
   box-shadow: 0 4px 12px rgba(8, 183, 17, 0.1);
   margin: 16px;
   background-color: #2E7D32;
-  
+
   .main-title {
     font-weight: 600;
     color: var(--green-dakar);
@@ -43,14 +43,14 @@ ion-toolbar[color="green-dakar"] {
 
 .custom-list {
   background: transparent;
-  
+
   .custom-item {
     --background: var(--green-light);
     border-radius: 8px;
     margin-bottom: 8px;
     --padding-start: 12px;
     --padding-end: 12px;
-    
+
     ion-icon {
       font-size: 1.2rem;
     }
@@ -59,32 +59,24 @@ ion-toolbar[color="green-dakar"] {
 
 .action-buttons {
   padding: 0 16px 16px;
-  
+
   .action-button {
     --box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
     font-weight: 600;
     height: 48px;
-    
+
     ion-icon {
       font-size: 1.2rem;
     }
   }
 }
 
-.custom-tab-bar {
-  --background: white;
-  border-top: 1px solid var(--green-light);
-  
-  ion-tab-button {
-    --color-selected: var(--green-dakar);
-  }
-}
 .action-button {
   --box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
   font-weight: 600;
   height: 50px;
   margin: 16px;
-  
+
   ion-icon {
     font-size: 1.4rem;
     margin-right: 8px;

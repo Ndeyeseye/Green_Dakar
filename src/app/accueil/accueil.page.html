@@ -28,7 +28,7 @@
         Rendons Dakar plus propre
       </ion-card-title>
     </ion-card-header>
-    
+
     <ion-card-content>
       <ion-list lines="none" class="custom-list">
         <ion-item class="custom-item" button detail="false" routerLink="/signalement">
@@ -36,7 +36,7 @@
           <ion-label>Signaler un problème</ion-label>
           <ion-badge color="#E8F5E9" slot="end">12</ion-badge>
         </ion-item>
-        
+
         <ion-item class="custom-item" button detail="false">
           <ion-icon slot="start" name="map" color="#E8F5E9"></ion-icon>
           <ion-label>Voir les signalements</ion-label>
@@ -52,32 +52,3 @@
     </ion-button>
   </div>
 </ion-content>
-
-<ion-tabs>
-  <ion-tab-bar slot="bottom" class="custom-tab-bar">
-    <ion-tab-button tab="accueil" selected>
-      <ion-icon name="home" color="green-dakar"></ion-icon>
-      <ion-label color="green-dakar">Accueil</ion-label>
-    </ion-tab-button>
-    
-    <ion-tab-button tab="carte">
-      <ion-icon name="map" color="green-dakar"></ion-icon>
-      <ion-label color="green-dakar">Carte</ion-label>
-    </ion-tab-button>
-    
-    <ion-tab-button tab="signaler" routerLink="/signalement">
-      <ion-icon name="add-circle" color="green-dakar"></ion-icon>
-      <ion-label color="green-dakar">Signaler</ion-label>
-    </ion-tab-button>
-    
-    <ion-tab-button tab="evenements">
-      <ion-icon name="calendar" color="green-dakar"></ion-icon>
-      <ion-label color="green-dakar">Évènements</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="profil">
-      <ion-icon name="person" color="green-dakar"></ion-icon>
-      <ion-label color="green-dakar">Profil</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>

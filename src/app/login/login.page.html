@@ -1,0 +1,61 @@
+<ion-content class="ion-padding login-content">
+  <div class="page-container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo Green Dakar" class="logo" />
+    </div>
+
+    <h1 class="title">Green Dakar</h1>
+    <p class="subtitle">Pour une ville plus propre</p>
+
+    <div class="button-group">
+      <ion-button expand="block" color="success" routerLink="/login">Se connecter</ion-button>
+      <ion-button expand="block" color="success" routerLink="/register">Créer un compte</ion-button>
+      <ion-button expand="block" color="success" routerLink="/map">Continuer en anonyme</ion-button>
+    </div>
+
+    <ion-text class="footer-link">
+      <a routerLink="/about">À propos - Comment ça marche</a>
+    </ion-text>
+  </div>
+</ion-content>
+
+<style>
+  ion-content {
+    --background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .footer-link {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .subtitle {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .button-group {
+    padding: 20px;
+  }
+</style>

@@ -11,6 +11,10 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+  path: 'tabs',
+    loadComponent: () => import('./tabs/tabs.page').then(m => m.TabsPage),
+    children: [
+  {
     path: 'accueil',
     loadComponent: () => import('./accueil/accueil.page').then( m => m.AccueilPage)
   },
@@ -26,4 +30,23 @@ export const routes: Routes = [
     path: 'profil',
     loadComponent: () => import('./profil/profil.page').then( m => m.ProfilPage)
   },
+  {
+    path: 'evenements',
+    loadComponent: () => import('./evenements/evenements.page').then( m => m.EvenementsPage)
+  },
+]
+},
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then( m => m.HomePage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  },  {
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  }
+
+
 ];

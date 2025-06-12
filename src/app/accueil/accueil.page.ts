@@ -31,7 +31,7 @@ import { calendar } from 'ionicons/icons';
 
 // Dans le constructor
 addIcons({ calendar });
-import { 
+import {
   notifications,
   leaf,
   warning,
@@ -88,5 +88,5 @@ export class AccueilPage {
       person
     });
   }
-  
+
 }
