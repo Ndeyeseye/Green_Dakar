@@ -50,6 +50,11 @@ export const routes: Routes = [
     path: 'mairie/intervention',
     loadComponent: () => import('./mairie/intervention/intervention.page').then( m => m.InterventionPage)
   },
+  {
+    path: 'mairie/rapports',
+    loadComponent: () => import('./mairie/rapports/rapports.page').then( m => m.RapportsPage)
+  },
+
 
 
 ];

@@ -1,0 +1,46 @@
+.rapport-content {
+  padding: 16px;
+  background: #f8f9f9;
+}
+
+ion-item {
+  border-radius: 12px;
+  margin-bottom: 12px;
+  --background: white;
+  box-shadow: 0 2px 4px rgb(15, 15, 15);
+}
+
+.rapport-icon {
+  font-size: 28px;
+  color: #388e3c; // vert
+}
+ion-label{
+    color:#388e3c;
+}
+h2{
+    color:#388e3c;
+}
+ion-content {
+  --background: #ffffff;
+  padding: 1rem;
+}
+:host {
+  --background: #ffffff;
+  display: block;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+ion-content {
+  --background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+ion-list,
+ion-item {
+  background-color: #ffffff;
+}
+
+body {
+  background-color: #ffffff !important;
+}
