@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="green-dakar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/mairie/accueil"></ion-back-button>
+      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/accueil"></ion-back-button>
     </ion-buttons>
-    <ion-title>Liste des rapports</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="rapport-content" color="white">
+
+  <!-- Titre placé au même niveau que le bouton précédent -->
+  <div class="rapport-header">
+    <h2>Liste des rapports</h2>
+  </div>
 
   <ion-list>
     <ion-item *ngFor="let rapport of rapports" button detail>
@@ -25,27 +29,3 @@
   </ion-list>
 
 </ion-content>
-
-<!-- <ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="carte">
-      <ion-icon name="map-outline"></ion-icon>
-      <ion-label>Carte</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="annonces">
-      <ion-icon name="megaphone-outline"></ion-icon>
-      <ion-label>Annonces</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="rapports">
-      <ion-icon name="document-text-outline"></ion-icon>
-      <ion-label>Rapports</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="profil">
-      <ion-icon name="person-outline"></ion-icon>
-      <ion-label>Profil</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs> -->

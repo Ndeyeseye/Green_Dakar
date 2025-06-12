@@ -37,9 +37,9 @@ import {
     IonLabel,
     IonButtons,
     IonBackButton,
-    IonTabs,
-    IonTabBar,
-    IonTabButton
+    // IonTabs,
+    // IonTabBar,
+    // IonTabButton
   ]
 })
 export class RapportsPage implements OnInit {

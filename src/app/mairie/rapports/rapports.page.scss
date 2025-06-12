@@ -44,3 +44,20 @@ ion-item {
 body {
   background-color: #ffffff !important;
 }
+.rapport-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px; /* Hauteur similaire à la toolbar */
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.rapport-header h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+  font-weight: bold;
+  margin-top: 10;
+}
+
