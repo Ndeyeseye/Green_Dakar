@@ -69,9 +69,9 @@ import {
     IonItem,
     IonLabel,
     IonBadge,
-    IonTabs,
-    IonTabBar,
-    IonTabButton
+    // IonTabs,
+    // IonTabBar,
+    // IonTabButton
   ]
 })
 export class AccueilPage {
