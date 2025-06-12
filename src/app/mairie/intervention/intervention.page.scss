@@ -1,0 +1,303 @@
+// /* Fond global de la page */
+// ion-content.custom-background {
+//   --background: #f8faf8; /* Fond légèrement verdâtre */
+// }
+
+// /* Style de la carte */
+// ion-card.form-card {
+//   border-radius: 16px;
+//   box-shadow: 0 4px 16px rgba(0, 100, 0, 0.1);
+//   margin: 16px;
+//   background: white;
+//   border: 1px solid #e0e0e0;
+//   color: green;
+// }
+
+// /* Contenu de la carte */
+// ion-card-content.card-content {
+//   padding: 16px;
+//   color: green;
+// }
+
+// /* Chaque item du formulaire */
+// ion-item.form-item {
+//   --border-radius: 12px;
+//   --padding-start: 12px;
+//   --padding-end: 12px;
+//   --background: #f8faf8;
+//   border: 1px solid #e0f2e0;
+//   border-radius: 12px;
+//   margin-bottom: 16px;
+//   transition: all 0.3s ease;
+
+//   //color: green;
+// }
+
+// ion-item.form-item:hover {
+//   border-color: var(--ion-color-success);
+
+// }
+
+
+// /* Labels flottants */
+// ion-label {
+//   color: var(--ion-color-success);
+//   font-weight: 600;
+//   color: green;
+
+// }
+
+// /* Selects et textarea personnalisés */
+// ion-select.custom-select, ion-textarea.custom-textarea {
+//   --padding-start: 12px !important;
+//   --padding-end: 12px !important;
+//   background: #f8faf8;
+//   border-radius: 8px;
+//   margin-top: 8px;
+//   border: 1px solid #e0e0e0;
+//   --placeholder-color: #666;
+
+// }
+
+// ion-textarea.custom-textarea {
+//   min-height: 100px;
+
+// }
+
+// /* Input partenaire */
+// ion-input.custom-input {
+//   background: #f8faf8;
+//   border-radius: 8px;
+//   margin-top: 8px;
+//   border: 1px solid #e0e0e0;
+//   padding-left: 12px;
+//   height: 40px;
+//    color: green;
+// }
+
+// /* Bouton de validation */
+// ion-button.action-button {
+//   --border-radius: 12px;
+//   --box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+//   font-weight: 600;
+//   height: 50px;
+//   margin-top: 8px;
+//   --background-activated: var(--ion-color-success-shade);
+// }
+
+// /* Header personnalisé */
+// ion-toolbar.custom-toolbar {
+//   background-color: white;
+//   border-radius: 0 0 20px 20px;
+//   box-shadow: 0 4px 12px rgba(0, 100, 0, 0.08);
+//   margin-bottom: 16px;
+//   padding: 16px;
+//    color: green;
+// }
+
+// /* Titre de la carte */
+// ion-card-title.section-title {
+//   color: var(--ion-color-success);
+//   font-weight: 600;
+//   margin-bottom: 16px;
+//   font-size: 1.4rem;
+//    color: green;
+// }
+
+// /* Icônes */
+// ion-icon {
+//   font-size: 1.2rem;
+//    color: green;
+// }
+// ion-label{
+//   color: #2a7a2a; /* vert foncé */
+//   font-weight: 600;
+//   font-size: 1rem;
+// }
+
+/* === Styles Globaux === */
+:root {
+  --ion-color-green-dakar: #28ba62;  /* Vert principal */
+  --ion-color-green-dakar-shade: #1e944d;  /* Vert plus foncé */
+  --ion-color-light-bg: #f8faf8;  /* Fond clair verdâtre */
+  --ion-color-border: #e0f2e0;  /* Bordure verte claire */
+}
+
+/* === En-tête === */
+.custom-toolbar {
+  --background: white;
+  --color: var(--ion-color-green-dakar); /* Texte en vert */
+  //box-shadow: 0 4px 12px rgba(0, 100, 0, 0.08); /* Ombre verte subtile */
+ // border-radius: 0 0 20px 20px; /* Arrondi seulement en bas */
+}
+
+/* === Contenu Principal === */
+.custom-background {
+  --background: var(--ion-color-light-bg); /* Fond légèrement verdâtre */
+}
+
+/* === Carte du Formulaire === */
+.form-card {
+  border-radius: 16px;
+  //box-shadow: 0 4px 16px rgba(0, 100, 0, 0.1); /* Ombre verte */
+  margin: 16px;
+  background: white;
+  color: #1e944d;
+  border: 1px solid var(--ion-color-border); /* Bordure verte claire */
+}
+
+/* === Titre de Section === */
+.section-title {
+ // color: var(--ion-color-green-dakar); /* Texte vert */
+ color: green;
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.section-title::after { /* Ligne décorative sous le titre */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--ion-color-green-dakar);
+  margin: 12px auto 0;
+  border-radius: 3px;
+  color: #1e944d;
+}
+
+/* === Éléments du Formulaire === */
+.form-item {
+  --border-radius: 12px;
+  --background: #f8faf8; /* Fond des champs */
+  --highlight-color-focused: var(--ion-color-green-dakar); /* Couleur de focus */
+  border: 1px solid var(--ion-color-border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease; /* Animation fluide */
+  color: #1e944d;
+}
+
+.form-item:hover { /* Effet au survol */
+  border-color: var(--ion-color-green-dakar);
+  box-shadow: 0 2px 8px rgba(0, 128, 0, 0.1);
+}
+
+/* === Labels Flottants === */
+ion-label[position="floating"] {
+  color: var(--ion-color-green-dakar) !important; /* Texte vert */
+  font-weight: 500;
+}
+
+.item-label-floating { /* Animation du label flottant */
+  color: var(--ion-color-green-dakar);
+}
+
+/* === Champs de Formulaire === */
+.custom-select, .custom-input, .custom-textarea {
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --placeholder-color: #a0a0a0; /* Placeholder gris */
+  --color: #333; /* Texte noir */
+  background: #f8faf8;
+  border-radius: 8px;
+  margin-top: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.custom-select::part(icon) { /* Icône du select */
+  color: var(--ion-color-green-dakar);
+}
+
+/* === État Focus === */
+.item-has-focus {
+  border-color: var(--ion-color-green-dakar);
+}
+
+.item-has-focus ion-label[position="floating"] {
+  color: var(--ion-color-green-dakar-shade) !important; /* Vert plus foncé */
+}
+
+/* === Bouton d'Action === */
+.action-button {
+  --background: var(--ion-color-green-dakar);
+  --background-activated: var(--ion-color-green-dakar-shade);
+  --border-radius: 12px;
+  --box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+  font-weight: 600;
+  height: 50px;
+  margin-top: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, box-shadow 0.2s; /* Animation */
+}
+
+.action-button:hover { /* Effet 3D au survol */
+  transform: translateY(-2px);
+  --box-shadow: 0 6px 12px rgba(0, 128, 0, 0.3);
+}
+
+/* === Options du Select === */
+ion-select-option {
+  --color: #333;
+  --color-hover: var(--ion-color-green-dakar);
+  --background-hover: rgba(0, 128, 0, 0.1);
+}
+
+/* === DatePicker === */
+ion-datetime {
+  --background: #f8faf8;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+}
+ion-content.custom-background {
+ --background: #f8faf8; /* Fond légèrement verdâtre */
+ }
+
+ /* Style spécifique pour le datetime picker noir */
+.custom-datetime {
+  --background: #f8faf8;
+  --border-radius: 8px;
+  --border: 1px solid #333;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  color: #000 !important;
+  margin-top: 20px; /* Ajout pour abaisser le calendrier */
+}
+
+/* Style du conteneur du calendrier */
+// ion-datetime::part(wheel-item) {
+//   margin-top: 15px; /* Espace supplémentaire */
+// }
+
+// /* Style du calendrier (modal/popover) */
+// ion-datetime::part(calendar) {
+//   margin-top: 10px; /* Abaisse spécifiquement le calendrier */
+// }
+
+// /* Ajustement supplémentaire pour le popover */
+// .datetime-popover .datetime-content {
+//   padding-top: 15px;
+// }
+/* Libellé en vert foncé */
+ion-label[color="green"] {
+  color: #2a7a2a;
+  font-weight: 600;
+}
+
+/* Style général du datetime */
+ion-datetime.custom-datetime::part(calendar-day) {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  border-radius: 6px;
+}
+
+/* Effet enfoncé au survol */
+ion-datetime.custom-datetime::part(calendar-day):hover {
+  transform: scale(0.95);
+  box-shadow: inset 0 0 5px rgba(0, 100, 0, 0.3);
+  background-color: #e6f5e6;
+  color: green;
+}
