@@ -10,7 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
+
+{
   path: 'citoyen/tabs',
     loadComponent: () => import('./citoyen/tabs/tabs.page').then(m => m.TabsPage),
     children: [
@@ -34,7 +35,6 @@ export const routes: Routes = [
     path: 'evenements',
     loadComponent: () => import('./citoyen/evenements/evenements.page').then( m => m.EvenementsPage)
   },
-
 ]
 },
 
@@ -42,19 +42,29 @@ export const routes: Routes = [
     path: 'ONG/accueil',
     loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
   },
+
+{
+  path: 'mairie/tabs',
+    loadComponent: () => import('./mairie/tabs/tabs.page').then(m => m.TabsPage),
+    children: [
   {
-    path: 'mairie/accueil',
+    path: 'accueil',
     loadComponent: () => import('./mairie/accueil/accueil.page').then( m => m.AccueilPage)
   },
   {
-    path: 'mairie/intervention',
+    path: 'intervention',
     loadComponent: () => import('./mairie/intervention/intervention.page').then( m => m.InterventionPage)
   },
   {
-    path: 'mairie/rapports',
+  path: 'rapports',
     loadComponent: () => import('./mairie/rapports/rapports.page').then( m => m.RapportsPage)
   },
-
+  {
+    path: 'profil',
+    loadComponent: () => import('./mairie/profil/profil.page').then( m => m.ProfilPage)
+  },
+]
+},
 
 
 ];
