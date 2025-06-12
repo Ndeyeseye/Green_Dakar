@@ -117,8 +117,8 @@
 
 /* === Styles Globaux === */
 :root {
-  --ion-color-green-dakar: #28ba62;  /* Vert principal */
-  --ion-color-green-dakar-shade: #1e944d;  /* Vert plus foncé */
+  --ion-color-green-dakar: green;  /* Vert principal */
+  --ion-color-green-dakar-shade: green;  /* Vert plus foncé */
   --ion-color-light-bg: #f8faf8;  /* Fond clair verdâtre */
   --ion-color-border: #e0f2e0;  /* Bordure verte claire */
 }
@@ -142,7 +142,7 @@
   //box-shadow: 0 4px 16px rgba(0, 100, 0, 0.1); /* Ombre verte */
   margin: 16px;
   background: white;
-  color: #1e944d;
+  color: green;
   border: 1px solid var(--ion-color-border); /* Bordure verte claire */
 }
 
