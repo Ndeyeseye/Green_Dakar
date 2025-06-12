@@ -63,8 +63,14 @@ export const routes: Routes = [
     path: 'profil',
     loadComponent: () => import('./mairie/profil/profil.page').then( m => m.ProfilPage)
   },
+   {
+    path: 'carte',
+    loadComponent: () => import('./mairie/carte/carte.page').then( m => m.CartePage)
+  },
 ]
 },
+ 
+
 
 
 ];
