@@ -1,0 +1,35 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="accueil" (click)="activeTab = 'accueil'">
+      <ion-icon *ngIf="activeTab === 'accueil'" name="speedometer"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'accueil'" name="speedometer-outline"></ion-icon>
+      <ion-label>Tableau</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="carte" (click)="activeTab = 'carte'">
+      <ion-icon *ngIf="activeTab === 'carte'" name="map"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'carte'" name="map-outline"></ion-icon>
+      <ion-label>Carte</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="intervention" (click)="activeTab = 'intervention'">
+      <ion-icon *ngIf="activeTab === 'intervention'" name="build"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'intervention'" name="build-outline"></ion-icon>
+      <ion-label>Interventions</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="rapports" (click)="activeTab = 'rapports'">
+      <ion-icon *ngIf="activeTab === 'rapports'" name="document"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'rapports'" name="document-outline"></ion-icon>
+      <ion-label>Rapports</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profil" (click)="activeTab = 'profil'">
+      <ion-icon *ngIf="activeTab === 'profil'" name="person"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'profil'" name="person-outline"></ion-icon>
+      <ion-label>Profil</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

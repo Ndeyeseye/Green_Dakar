@@ -1,0 +1,46 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {
+   IonAvatar,
+  IonBackButton,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonTitle,
+  IonToolbar
+} from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-profil',
+  templateUrl: './profil.page.html',
+  styleUrls: ['./profil.page.scss'],
+  standalone: true,
+imports: [
+     IonAvatar,
+  IonBackButton,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonTitle,
+  IonToolbar
+  ]
+})
+export class ProfilPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
