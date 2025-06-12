@@ -1,0 +1,39 @@
+<style>
+  ion-content {
+    --background:white;
+    color:  green;
+  }
+  .page-title {
+    text-align: center;
+    padding: 16px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:  green;
+  }
+</style>
+
+<ion-header>
+  <ion-toolbar style="--background: green;">
+    <ion-buttons slot="start">
+      <ion-back-button text="Précédent" defaultHref="/citoyen/tabs/accueil" color="white"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">Carte</ion-title> <!-- Titre minimal pour la toolbar -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="page-title">Signalements environnementaux</div>
+
+  <google-map
+    height="500px"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+  >
+    <map-marker
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [label]="marker.label"
+    ></map-marker>
+  </google-map>
+</ion-content>

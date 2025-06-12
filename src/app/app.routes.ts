@@ -63,8 +63,30 @@ export const routes: Routes = [
     path: 'profil',
     loadComponent: () => import('./mairie/profil/profil.page').then( m => m.ProfilPage)
   },
+   {
+    path: 'carte',
+    loadComponent: () => import('./mairie/carte/carte.page').then( m => m.CartePage)
+  },
 ]
-},
+},  {
+    path: 'signalements',
+    loadComponent: () => import('./ong/signalements/signalements.page').then( m => m.SignalementsPage)
+  },
+  {
+    path: 'rapports',
+    loadComponent: () => import('./ong/rapports/rapports.page').then( m => m.RapportsPage)
+  },
+  {
+    path: 'contenus',
+    loadComponent: () => import('./ong/contenus/contenus.page').then( m => m.ContenusPage)
+  },
+  {
+    path: 'evenements',
+    loadComponent: () => import('./ong/evenements/evenements.page').then( m => m.EvenementsPage)
+  },
+
+ 
+
 
 
 ];
