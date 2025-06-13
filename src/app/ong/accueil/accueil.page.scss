@@ -75,7 +75,7 @@
   .action-card {
     border-radius: 16px;
     transition: all 0.3s ease;
-       background-color: white;//mod
+       //background-color: white;//mod
     
     &:hover {
       transform: translateY(-4px);
@@ -144,7 +144,7 @@
 
 .events-section, .quick-actions-section {
   padding: 0 16px 16px;
-   background-color: white;
+  
   
   .section-icon {
     margin-right: 8px;
