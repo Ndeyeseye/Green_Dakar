@@ -68,7 +68,12 @@ export const routes: Routes = [
     loadComponent: () => import('./mairie/carte/carte.page').then( m => m.CartePage)
   },
 ]
-},  {
+},
+{
+  path: 'ong/tabs',
+    loadComponent: () => import('./ong/tabs/tabs.page').then(m => m.TabsPage),
+    children: [
+  {
     path: 'signalements',
     loadComponent: () => import('./ong/signalements/signalements.page').then( m => m.SignalementsPage)
   },
@@ -84,8 +89,15 @@ export const routes: Routes = [
     path: 'evenements',
     loadComponent: () => import('./ong/evenements/evenements.page').then( m => m.EvenementsPage)
   },
+  {
+    path: 'accueil',
+    loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
+  },
+]
+},
 
- 
+
+
 
 
 

@@ -1,13 +1,53 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signalements</ion-title>
+  <ion-toolbar color="success">
+    <ion-title>
+      <ion-icon name="analytics" class="ion-padding-end"></ion-icon>
+      Signalements & Statistiques
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signalements</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="bar-chart-outline"></ion-icon>
+        Statistiques générales
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="chart-placeholder">
+        <ion-icon name="stats-chart" size="large" color="medium"></ion-icon>
+        <p>Graphique des signalements (à intégrer)</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Signalements récents</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let signalement of signalements">
+          <ion-icon name="warning" slot="start" color="danger"></ion-icon>
+          <ion-label>
+            <h3>{{ signalement.type }}</h3>
+            <p>{{ signalement.date }} - {{ signalement.lieu }}</p>
+          </ion-label>
+          <ion-chip slot="end" color="medium">
+            <ion-icon name="calendar"></ion-icon>
+            <ion-label>{{ signalement.date }}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" fill="outline" color="success">
+    <ion-icon name="eye" slot="start"></ion-icon>
+    Voir tous les signalements
+  </ion-button>
+
 </ion-content>
