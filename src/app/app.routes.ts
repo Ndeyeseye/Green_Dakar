@@ -64,6 +64,10 @@ export const routes: Routes = [
     path: 'carte',
     loadComponent: () => import('./mairie/carte/carte.page').then( m => m.CartePage)
   },
+  {
+    path: 'score',
+    loadComponent: () => import('./mairie/score/score.page').then( m => m.ScorePage)
+  },
 
 ]
 },
@@ -99,6 +103,8 @@ export const routes: Routes = [
 
 ]
 },
+  
+
  
 
 
