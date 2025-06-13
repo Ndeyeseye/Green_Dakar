@@ -17,8 +17,8 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Io
 export class ContenusPage implements OnInit {
 
   contents = [
-    { title: 'Lutter contre les déchets plastiques', type: 'Article', date: '10 Juin', icon: 'document-text', color: 'primary' },
-    { title: 'Vidéo - Nettoyage des plages', type: 'Vidéo', date: '08 Juin', icon: 'videocam', color: 'danger' },
+    { title: 'Lutter contre les déchets plastiques', type: 'Article', date: '10 Juin', icon: 'document-text', color: 'success' },
+    { title: 'Vidéo - Nettoyage des plages', type: 'Vidéo', date: '08 Juin', icon: 'videocam', color: 'success' },
     { title: 'Affiche - Trier ses déchets', type: 'Visuel', date: '05 Juin', icon: 'image', color: 'success' }
   ];
 

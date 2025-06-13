@@ -1,0 +1,61 @@
+:host {
+  --ion-background-color: #ffffff;
+}
+
+
+
+.profile-header {
+  text-align: center;
+  margin-top: 30px;
+  color: #000;
+}
+
+.avatar-large {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 10px;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.email {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: #6abf69;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.profile-options ion-item {
+  margin: 10px 15px;
+  border-radius: 12px;
+  --background: #f2f2f2;
+}
+
+.logout {
+  margin-top: 20px;
+  --background: #ffecec;
+  color: #d32f2f;
+}
+ion-list.profile-options {
+  background-color: #f0f4f1 !important;
+  --background: #ffffff !important;
+}
+
+ion-item {
+  --background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
