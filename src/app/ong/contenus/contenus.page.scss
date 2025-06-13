@@ -1,0 +1,46 @@
+ion-toolbar {
+  --background: var(--ion-color-success);
+  --color: white;
+}
+
+ion-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+ion-list {
+  margin-top: 16px;
+}
+
+ion-item {
+  --background: white;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+ion-button {
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+ion-card {
+  background: white !important;
+  --background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  color: #4caf50;
+}

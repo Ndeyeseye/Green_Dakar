@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      <ion-icon name="calendar" class="section-icon"></ion-icon>
+      Événements à venir
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="events-card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="calendar" class="section-icon"></ion-icon>
+        Événements à venir
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let event of upcomingEvents" button (click)="onEventClick(event)">
+          <ion-avatar slot="start">
+            <div class="event-date-avatar">
+              <span class="date-number">{{ event.date.split(' ')[0] }}</span>
+              <span class="date-month">{{ event.date.split(' ')[1] }}</span>
+            </div>
+          </ion-avatar>
+          <ion-label>
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.location }}</p>
+            <ion-note color="medium">{{ event.participants }} participants inscrits</ion-note>
+          </ion-label>
+          <ion-chip slot="end" color="success">
+            <ion-icon name="people"></ion-icon>
+            <ion-label>{{ event.participants }}</ion-label>
+          </ion-chip>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Section Clean-up Days -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <ion-card class="action-card cleanup-card">
+          <ion-card-header>
+            <div class="card-header-content">
+              <ion-icon name="leaf" class="card-icon"></ion-icon>
+              <ion-card-title color="white">Clean-up Days</ion-card-title>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Organisez et coorganisez des événements de nettoyage communautaire</p>
+            <div class="next-event">
+              <ion-chip color="success">
+                <ion-icon name="calendar"></ion-icon>
+                <ion-label>Prochain: 15 Juin</ion-label>
+              </ion-chip>
+            </div>
+            <ion-button expand="block" fill="solid" color="success">
+              <ion-icon name="calendar" slot="start"></ion-icon>
+              Organiser un Clean-up
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

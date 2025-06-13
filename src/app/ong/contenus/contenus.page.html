@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>
+      <ion-icon name="bulb" class="ion-padding-end"></ion-icon>
+      Contenus de sensibilisation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <!-- Résumé -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="albums-outline"></ion-icon> Résumé
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content class="stats">
+    <ion-chip color="success">
+      <ion-icon name="image" color="green"></ion-icon>
+      <ion-label>24 Visuels</ion-label>
+    </ion-chip>
+    <ion-chip color="success">
+      <ion-icon name="videocam" color="green"></ion-icon>
+      <ion-label>8 Vidéos</ion-label>
+    </ion-chip>
+    <ion-chip color="success">
+      <ion-icon name="document-text" color="green"></ion-icon>
+      <ion-label>12 Articles</ion-label>
+    </ion-chip>
+  </ion-card-content>
+</ion-card>
+
+
+  <!-- Liste des contenus -->
+  <ion-list>
+    <ion-item *ngFor="let content of contents" button>
+      <ion-icon slot="start" [name]="content.icon" [color]="content.color"></ion-icon>
+      <ion-label>
+        <h3>{{ content.title }}</h3>
+        <p>{{ content.date }} • {{ content.type }}</p>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" fill="solid" color="success" shape="round">
+    <ion-icon name="add" slot="start"></ion-icon>
+    Créer un nouveau contenu
+  </ion-button>
+
+
+</ion-content>

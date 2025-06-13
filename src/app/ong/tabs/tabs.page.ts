@@ -2,17 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonTabs,
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs,
   IonTabBar,
   IonTabButton,
   IonIcon,
   IonLabel
-} from '@ionic/angular/standalone';
+}from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-tabs',
@@ -20,33 +15,28 @@ import {
   styleUrls: ['./tabs.page.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    // IonContent,
-    // IonHeader,
-    // IonTitle,
-    // IonToolbar,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonIcon,
-    IonLabel
+    IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonIcon,
+  IonLabel
   ]
 })
 export class TabsPage implements OnInit {
-  activeTab = 'accueil'; // onglet par défaut
+    activeTab = 'accueil';
 
-  constructor(private router: Router) {}
-
-  ngOnInit() {
+  constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const currentRoute = event.urlAfterRedirects.split('/').pop();
-        if (currentRoute) {
-          this.activeTab = currentRoute;
+        const path = event.urlAfterRedirects.split('/').pop();
+        if (path) {
+          this.activeTab = path;
         }
       }
     });
   }
-}
 
+  ngOnInit() {
+  }
+
+}

@@ -38,10 +38,7 @@ export const routes: Routes = [
 ]
 },
 
-  {
-    path: 'ONG/accueil',
-    loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
-  },
+ 
 
 {
   path: 'mairie/tabs',
@@ -67,10 +64,42 @@ export const routes: Routes = [
     path: 'carte',
     loadComponent: () => import('./mairie/carte/carte.page').then( m => m.CartePage)
   },
+
+]
+},
+{
+  path: 'ong/tabs',
+    loadComponent: () => import('./ong/tabs/tabs.page').then(m => m.TabsPage),
+    children: [
+  {
+    path: 'signalements',
+    loadComponent: () => import('./ong/signalements/signalements.page').then( m => m.SignalementsPage)
+  },
+  {
+    path: 'rapports',
+    loadComponent: () => import('./ong/rapports/rapports.page').then( m => m.RapportsPage)
+  },
+  {
+    path: 'contenus',
+    loadComponent: () => import('./ong/contenus/contenus.page').then( m => m.ContenusPage)
+  },
+  {
+    path: 'evenements',
+    loadComponent: () => import('./ong/evenements/evenements.page').then( m => m.EvenementsPage)
+  },
+  {
+    path: 'accueil',
+    loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
+  },
+  {
+    path: 'profil',
+    loadComponent: () => import('./ong/profil/profil.page').then( m => m.ProfilPage)
+  },
+
+
 ]
 },
  
-
 
 
 ];

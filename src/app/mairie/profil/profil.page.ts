@@ -24,7 +24,7 @@ import {
 imports: [
      IonAvatar,
   IonBackButton,
-  IonButton,
+  // IonButton,
   IonButtons,
   IonContent,
   IonHeader,
