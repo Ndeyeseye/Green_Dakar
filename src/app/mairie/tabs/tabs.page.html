@@ -2,8 +2,8 @@
   <ion-tab-bar slot="bottom">
 
     <ion-tab-button tab="accueil" (click)="activeTab = 'accueil'">
-      <ion-icon *ngIf="activeTab === 'accueil'" name="speedometer"></ion-icon>
-      <ion-icon *ngIf="activeTab !== 'accueil'" name="speedometer-outline"></ion-icon>
+      <ion-icon *ngIf="activeTab === 'accueil'" name="home"></ion-icon>
+      <ion-icon *ngIf="activeTab !== 'accueil'" name="home-outline"></ion-icon>
       <ion-label>Tableau</ion-label>
     </ion-tab-button>
 
@@ -24,6 +24,12 @@
       <ion-icon *ngIf="activeTab !== 'rapports'" name="document-outline"></ion-icon>
       <ion-label>Rapports</ion-label>
     </ion-tab-button>
+
+    <ion-tab-button tab="score" (click)="activeTab = 'score'">
+  <ion-icon [name]="activeTab === 'score' ? 'speedometer' : 'speedometer-outline'"></ion-icon>
+  <ion-label>Score</ion-label>
+</ion-tab-button>
+
 
     <ion-tab-button tab="profil" (click)="activeTab = 'profil'">
       <ion-icon *ngIf="activeTab === 'profil'" name="person"></ion-icon>
