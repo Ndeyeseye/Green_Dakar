@@ -93,7 +93,11 @@ ion-label{
   color: #000; // Texte noir si besoin
 }
 
-.zone-item ion-label h3,
+.zone-item ion-label h3 {
+  color: green;
+  background-color:white;
+}
 .zone-item ion-label p {
-  color: #000 !important;
+  color: gray;
+  background-color:white;
 }
