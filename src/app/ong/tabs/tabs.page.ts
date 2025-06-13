@@ -15,7 +15,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonTabs,
   styleUrls: ['./tabs.page.scss'],
   standalone: true,
   imports: [
-    IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonTabs,
+   CommonModule, FormsModule, IonTabs,
   IonTabBar,
   IonTabButton,
   IonIcon,

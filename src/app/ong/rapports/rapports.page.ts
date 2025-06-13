@@ -42,7 +42,7 @@ import {
     IonLabel,
     IonIcon,
     IonButton,
-    IonChip
+    // IonChip
   ],
 })
 export class RapportsPage implements OnInit {
