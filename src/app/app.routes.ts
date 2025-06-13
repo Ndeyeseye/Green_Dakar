@@ -93,12 +93,12 @@ export const routes: Routes = [
     path: 'accueil',
     loadComponent: () => import('./ong/accueil/accueil.page').then( m => m.AccueilPage)
   },
+  {
+    path: 'profil',
+    loadComponent: () => import('./ong/profil/profil.page').then( m => m.ProfilPage)
+  },
+
 ]
 },
-
-
-
-
-
 
 ];
