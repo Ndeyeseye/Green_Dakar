@@ -10,7 +10,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Io
   templateUrl: './contenus.page.html',
   styleUrls: ['./contenus.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
+  imports: [IonHeader, CommonModule, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
   IonCardContent, IonList, IonItem, IonIcon, IonLabel, IonButton, IonChip
   ]
 })
