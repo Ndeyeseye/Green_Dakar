@@ -38,7 +38,6 @@ export const routes: Routes = [
 ]
 },
 
- 
 
 {
   path: 'mairie/tabs',
@@ -71,6 +70,8 @@ export const routes: Routes = [
 
 ]
 },
+
+
 {
   path: 'ong/tabs',
     loadComponent: () => import('./ong/tabs/tabs.page').then(m => m.TabsPage),
@@ -103,9 +104,5 @@ export const routes: Routes = [
 
 ]
 },
-  
-
- 
-
 
 ];
