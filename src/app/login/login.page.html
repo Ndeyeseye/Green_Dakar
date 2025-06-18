@@ -1,0 +1,46 @@
+<ion-content class="login-content">
+  <div class="login-container">
+
+    <!-- Logo -->
+    <ion-img src="assets/image.jpg" class="logo"></ion-img>
+
+    <!-- Titre -->
+    <h2 class="welcome-title">Bienvenue sur Green Dakar</h2>
+    <p class="subtitle">Agissez contre l’insalubrité dans votre ville</p>
+
+    <!-- Formulaire -->
+    <ion-list lines="none" class="form-list">
+
+      <!-- Email -->
+      <ion-item>
+        <ion-icon slot="start" name="mail-outline"></ion-icon>
+        <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <!-- Mot de passe -->
+      <ion-item>
+        <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+        <ion-input type="password" placeholder="Mot de passe" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <!-- Bouton de connexion -->
+    <ion-button expand="block" color="success" (click)="login()">Se connecter</ion-button>
+
+    <!-- ou -->
+    <div class="separator">ou</div>
+
+    <!-- Connexion anonyme -->
+    <ion-button expand="block" fill="outline" (click)="loginAnonyme()">
+      <ion-icon slot="start" name="person-outline"></ion-icon>
+      Continuer en tant que citoyen anonyme
+    </ion-button>
+
+    <!-- Lien créer un compte -->
+    <p class="account-text">
+      Pas de compte ?
+      <a routerLink="/register" class="link-text">Créer un compte</a>
+    </p>
+  </div>
+</ion-content>
