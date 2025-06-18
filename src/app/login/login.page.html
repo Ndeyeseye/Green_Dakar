@@ -26,15 +26,17 @@
     </ion-list>
 
     <!-- Bouton de connexion -->
-    <ion-button expand="block" color="success" (click)="login()">Se connecter</ion-button>
+    <ion-button expand="block" class="btn-connexion" (click)="login()">
+      Se connecter
+    </ion-button>
 
     <!-- ou -->
     <div class="separator">ou</div>
 
     <!-- Connexion anonyme -->
-    <ion-button expand="block" fill="outline" (click)="loginAnonyme()">
+    <ion-button expand="block" fill="outline" class="btn-anonyme" (click)="loginAnonyme()">
       <ion-icon slot="start" name="person-outline"></ion-icon>
-      Continuer en tant que citoyen anonyme
+      <span class="texte-vert">Continuer en tant que citoyen anonyme</span>
     </ion-button>
 
     <!-- Lien créer un compte -->
