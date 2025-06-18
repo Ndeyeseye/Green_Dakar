@@ -9,6 +9,7 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
+  <!-- Statistiques générales -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>
@@ -24,6 +25,7 @@
     </ion-card-content>
   </ion-card>
 
+  <!-- Liste des signalements -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>Signalements récents</ion-card-title>
@@ -31,15 +33,26 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let signalement of signalements">
-          <ion-icon name="warning" slot="start" color="danger"></ion-icon>
+
+          <!-- Affiche image si elle existe -->
+          <ion-thumbnail slot="start" *ngIf="signalement.photoURL">
+            <ion-img [src]="signalement.photoURL"></ion-img>
+          </ion-thumbnail>
+
+          <!-- Sinon icône de signalement -->
+          <ion-icon *ngIf="!signalement.photoURL" name="warning" slot="start" color="danger"></ion-icon>
+
           <ion-label>
-            <h3>{{ signalement.type }}</h3>
-            <p>{{ signalement.date }} - {{ signalement.lieu }}</p>
+            <h3>{{ signalement.typeNuisance }}</h3>
+            <p>{{ signalement.localisation }}</p>
           </ion-label>
+
           <ion-chip slot="end" color="medium">
             <ion-icon name="calendar"></ion-icon>
-            <ion-label>{{ signalement.date }}</ion-label>
+            <ion-label> {{ signalement.date | date:'shortDate' }}
+ </ion-label>
           </ion-chip>
+
         </ion-item>
       </ion-list>
     </ion-card-content>

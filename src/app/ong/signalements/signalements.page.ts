@@ -1,8 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
-  IonCardContent, IonList, IonItem, IonIcon, IonLabel, IonChip, IonButton
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonList,
+  IonItem,
+  IonIcon,
+  IonLabel,
+  IonChip,
+  IonButton,
+  IonThumbnail,
+  IonImg
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -10,17 +25,48 @@ import {IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Ion
   templateUrl: './signalements.page.html',
   styleUrls: ['./signalements.page.scss'],
   standalone: true,
-  imports: [IonHeader, CommonModule, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
-  IonCardContent, IonList, IonItem, IonIcon, IonLabel, IonChip, IonButton
-
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonList,
+    IonItem,
+    IonIcon,
+    IonLabel,
+    IonChip,
+    IonButton,
+    IonThumbnail,
+    IonImg
   ]
 })
 export class SignalementsPage implements OnInit {
 
   signalements = [
-    { type: 'Décharge sauvage', date: '12 Juin', lieu: 'Yoff' },
-    { type: 'Eaux usées', date: '10 Juin', lieu: 'Pikine' },
-    { type: 'Ordures ménagères', date: '08 Juin', lieu: 'Guédiawaye' }
+    {
+      typeNuisance: 'Décharge sauvage',
+      localisation: 'Yoff',
+      date: new Date('2024-06-12'),
+      photoURL: 'https://via.placeholder.com/80'  // exemple d’image
+    },
+    {
+      typeNuisance: 'Eaux usées',
+      localisation: 'Pikine',
+      date: new Date('2024-06-10'),
+      photoURL: ''
+    },
+    {
+      typeNuisance: 'Ordures ménagères',
+      localisation: 'Guédiawaye',
+      date: new Date('2024-06-08'),
+      photoURL: 'https://via.placeholder.com/80'
+    }
   ];
 
   constructor() { }

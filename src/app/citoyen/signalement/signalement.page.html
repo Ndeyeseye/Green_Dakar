@@ -12,16 +12,16 @@
   <div class="header-section ion-padding">
     <h2 class="section-title">Signaler un problème</h2>
     <div class="photo-upload-container">
-      <ion-button fill="clear" color="green-dakar" class="photo-button">
+      <ion-button fill="clear" color="green-dakar" class="photo-button" (click)="ouvrirSelecteurPhoto()">
         <div class="button-content">
           <ion-icon name="camera" class="photo-icon"></ion-icon>
           <span>Ajouter une photo</span>
         </div>
       </ion-button>
-     
-      </div>
+      <!-- Input caché pour sélectionner la photo -->
+      <input type="file" #fileInput hidden accept="image/*" (change)="onFileSelected($event)" />
     </div>
-  
+  </div>
 
   <!-- Formulaire amélioré -->
   <ion-card class="form-card">
@@ -32,9 +32,9 @@
           <ion-icon slot="start" name="location" color="green-dakar"></ion-icon>
           <ion-label class="item-label">
             <h3>Localisation</h3>
-            <p>123 rue Principale, Dakar</p>
+            <p>{{ localisation }}</p>
           </ion-label>
-          <ion-button fill="clear" color="medium" size="small">
+          <ion-button fill="clear" color="medium" size="small" (click)="modifierLocalisation()">
             <ion-icon slot="icon-only" name="create"></ion-icon>
           </ion-button>
         </ion-item>
@@ -43,11 +43,16 @@
         <ion-item class="form-item ion-margin-bottom">
           <ion-icon slot="start" name="warning" color="green-dakar"></ion-icon>
           <ion-label position="stacked">Type de nuisance</ion-label>
-          <ion-select placeholder="Sélectionnez" interface="action-sheet" class="custom-select">
+          <ion-select
+            [(ngModel)]="typeNuisance"
+            placeholder="Sélectionnez"
+            interface="action-sheet"
+            class="custom-select"
+          >
             <ion-select-option value="dechets">Déchets</ion-select-option>
             <ion-select-option value="bruit">Bruit</ion-select-option>
             <ion-select-option value="eau">Problème d'eau</ion-select-option>
-            <ion-select-option value="eau">Eaux usées</ion-select-option>
+            <ion-select-option value="eaux-usees">Eaux usées</ion-select-option>
             <ion-select-option value="autre">Autre</ion-select-option>
           </ion-select>
         </ion-item>
@@ -56,11 +61,13 @@
         <ion-item class="form-item ion-margin-bottom">
           <ion-icon slot="start" name="document-text" color="green-dakar"></ion-icon>
           <ion-label position="stacked">Description</ion-label>
-          <ion-textarea 
-            placeholder="Décrivez le problème en détail..." 
+          <ion-textarea
+            [(ngModel)]="description"
+            placeholder="Décrivez le problème en détail..."
             autoGrow="true"
             rows="4"
-            class="custom-textarea"></ion-textarea>
+            class="custom-textarea"
+          ></ion-textarea>
         </ion-item>
       </ion-list>
     </ion-card-content>
@@ -68,11 +75,13 @@
 
   <!-- Bouton d'action -->
   <div class="action-section ion-padding">
-    <ion-button 
-      expand="block" 
-      color="green-dakar" 
+    <ion-button
+      expand="block"
+      color="green-dakar"
       class="action-button"
-      shape="round">
+      shape="round"
+      (click)="submitReport()"
+    >
       <ion-icon slot="start" name="send"></ion-icon>
       Envoyer le signalement
     </ion-button>
