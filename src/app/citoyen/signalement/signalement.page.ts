@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, inject } from '@angular/core';
+import { Component, ViewChild, ElementRef, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -12,7 +12,7 @@ import {
 import { addIcons } from 'ionicons';
 import { camera, send, location, warning, documentText, images, create } from 'ionicons/icons';
 
-import { SignalementService } from '../../services/signalement.service'; // adapte le chemin si besoin
+import { SignalementService } from '../../services/signalement.service';
 
 @Component({
   selector: 'app-signalement',
@@ -40,17 +40,14 @@ import { SignalementService } from '../../services/signalement.service'; // adap
     IonBackButton,
   ],
 })
-export class SignalementPage {
-  // Injection manuelle du service (avec inject) car standalone
+export class SignalementPage implements OnInit {
   private signalementService = inject(SignalementService);
 
-  // Formulaire
-  localisation: string = '123 rue Principale, Dakar';
+  localisation: string = 'Chargement...';
   typeNuisance: string = '';
   description: string = '';
   photoFile?: File;
 
-  // Pour gérer input file caché
   @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
 
   constructor() {
@@ -64,10 +61,51 @@ export class SignalementPage {
       create,
     });
   }
-modifierLocalisation() {
-  console.log('Modifier localisation appelée');
-  // Plus tard tu pourras ajouter la vraie logique
-}
+
+  ngOnInit() {
+    this.getLocalisationAutomatique();
+  }
+
+  getLocalisationAutomatique() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          this.getAdresseDepuisCoordonnees(latitude, longitude);
+        },
+        (error) => {
+          console.error('Erreur de localisation :', error);
+          this.localisation = 'Localisation non disponible';
+        }
+      );
+    } else {
+      this.localisation = 'Géolocalisation non supportée';
+    }
+  }
+
+  async getAdresseDepuisCoordonnees(latitude: number, longitude: number) {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data && data.display_name) {
+        this.localisation = data.display_name;
+        console.log('Adresse obtenue :', this.localisation);
+      } else {
+        this.localisation = `Latitude : ${latitude}, Longitude : ${longitude}`;
+        console.warn('Adresse non trouvée, coordonnées utilisées à la place.');
+      }
+    } catch (error) {
+      console.error('Erreur de géocodage inverse :', error);
+      this.localisation = `Latitude : ${latitude}, Longitude : ${longitude}`;
+    }
+  }
+
+  modifierLocalisation() {
+    console.log('Relancer la géolocalisation');
+    this.getLocalisationAutomatique();
+  }
 
   ouvrirSelecteurPhoto() {
     this.fileInput.nativeElement.click();
@@ -95,13 +133,15 @@ modifierLocalisation() {
         photoFile: this.photoFile,
       });
       alert('Signalement envoyé avec succès');
-      // Reset formulaire
+
+      // Réinitialiser les champs
       this.typeNuisance = '';
       this.description = '';
       this.photoFile = undefined;
       if (this.fileInput) {
         this.fileInput.nativeElement.value = '';
       }
+
     } catch (error) {
       alert('Erreur lors de l\'envoi du signalement : ' + error);
     }
