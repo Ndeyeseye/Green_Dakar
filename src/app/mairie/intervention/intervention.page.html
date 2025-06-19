@@ -1,8 +1,9 @@
 <ion-header>
-  <ion-toolbar color="success" class="custom-toolbar">
+  <ion-toolbar style="--background: #1e5631;" class="custom-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/tabs/accueil"></ion-back-button>
+      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/tabs/accueil" color="white"></ion-back-button>
     </ion-buttons>
+    <ion-title>Intervention</ion-title>
     <!-- <ion-title>Planifier une intervention</ion-title> -->
   </ion-toolbar>
 </ion-header>
@@ -54,7 +55,7 @@
         <ion-textarea [(ngModel)]="intervention.remarques" placeholder="Ajouter une remarque..." class="custom-textarea"></ion-textarea>
       </ion-item>
 
-      <ion-button expand="block" color="success" (click)="validerIntervention()" class="action-button text-white">
+      <ion-button expand="block" style="--background: #1e5631;" (click)="validerIntervention()" class="action-button text-white">
   Valider et planifier
 </ion-button>
 

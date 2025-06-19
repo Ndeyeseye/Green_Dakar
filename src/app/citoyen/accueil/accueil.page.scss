@@ -1,6 +1,6 @@
 /* Variables de couleur */
 :root {
-  --green-dakar: #2E7D32;  // Vert foncé élégant
+  --green-dakar:#1e5631;  // Vert foncé élégant
   --green-light: #E8F5E9;   // Vert très clair pour fonds
 }
 
@@ -29,7 +29,7 @@ ion-toolbar[color="green-dakar"] {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(8, 183, 17, 0.1);
   margin: 16px;
-  background-color: #2E7D32;
+  background-color: #1e5631;
 
   .main-title {
     font-weight: 600;
@@ -82,4 +82,11 @@ ion-toolbar[color="green-dakar"] {
     margin-right: 8px;
     color: #E8F5E9;
   }
+}
+
+.custom-toolbar {
+  --background: #1e5631;
+  --color: white;
+  --ion-color-base: #1e5631;
+  color: white;
 }

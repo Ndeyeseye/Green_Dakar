@@ -29,7 +29,7 @@ import {
     IonContent,
     IonHeader,
     IonToolbar,
-    // IonTitle,
+    IonTitle,
     IonList,
     IonItem,
     IonAvatar,

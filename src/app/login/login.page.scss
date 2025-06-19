@@ -62,5 +62,26 @@ ion-item {
   margin-bottom: 10px;
 }
 ion-icon{
-    color: green;
+    color: #1e5631;
 }
+
+.texte-vert {
+  color: #1e5631;
+}
+
+.btn-anonyme {
+  --border-color: #1e5631;   // bordure verte
+  --color: #1e5631;          // texte et icône verts
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btn-connexion {
+  --background: #1e5631;
+  --background-hover: #184528; // une nuance plus foncée pour effet au survol
+  --color: #fff;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+
