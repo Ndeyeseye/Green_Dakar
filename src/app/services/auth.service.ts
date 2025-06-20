@@ -1,7 +1,7 @@
 // src/app/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile } from '@angular/fire/auth';
+import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile, updateEmail } from '@angular/fire/auth';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { onAuthStateChanged, User } from '@angular/fire/auth';
 
@@ -68,4 +68,23 @@ getCurrentUserRealtime(): Promise<User | null> {
     });
   });
 }
+
+async updateDisplayName(name: string): Promise<void> {
+  const user = this.auth.currentUser;
+  if (user) {
+    const u = await user;
+    await updateProfile(u, { displayName: name });
+
+    const userRef = doc(this.firestore, `users/${u.uid}`);
+    await setDoc(userRef, { fullName: name }, { merge: true });
+  }
+}
+
+async updateEmailUser(newEmail: string): Promise<void> {
+    const user = await this.auth.currentUser;
+    if (user && newEmail !== user.email) {
+      await updateEmail(user, newEmail);
+    }
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {
   IonAvatar,
@@ -25,6 +26,7 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     IonAvatar,
     IonBackButton,
     IonButtons,

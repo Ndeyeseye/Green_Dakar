@@ -29,10 +29,11 @@
           <ion-badge color="#E8F5E9" slot="end">12</ion-badge>
         </ion-item>
 
-        <ion-item class="custom-item" button detail="false">
-          <ion-icon slot="start" name="map" color="#E8F5E9"></ion-icon>
-          <ion-label>Voir les signalements</ion-label>
-        </ion-item>
+      <ion-item class="custom-item" button [routerLink]="['/mes-signalements']" detail="false">
+  <ion-icon slot="start" name="map" color="success"></ion-icon>
+  <ion-label>Voir les signalements</ion-label>
+</ion-item>
+
       </ion-list>
     </ion-card-content>
   </ion-card>
