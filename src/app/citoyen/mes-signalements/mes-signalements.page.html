@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar style="--background: #1e5631;">
+    <ion-buttons slot="start">
+      <ion-back-button text="Précédent" defaultHref="/citoyen/tabs/accueil" class="custom-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mes signalements</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <ion-list *ngIf="signalements.length > 0; else aucun" >
+    <ion-item *ngFor="let sig of signalements">
+      <ion-label>
+        <h2>{{ sig.typeNuisance }}</h2>
+        <p>{{ sig.description }}</p>
+        <p><strong>Lieu :</strong> {{ sig.localisation }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #aucun>
+    <p>Aucun signalement trouvé.</p>
+  </ng-template>
+</ion-content>
