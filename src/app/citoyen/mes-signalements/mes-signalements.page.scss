@@ -6,3 +6,7 @@ ion-list, ion-item {
 h2{
     color: green;
 }
+
+.custom-back-button {
+  --color: white; // Pour le texte ET l'icône
+}
