@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar style="--background: green;">
+  <ion-toolbar style="--background: #1e5631;">
     <ion-buttons slot="start">
-      <ion-back-button [text]="'Précédent'" defaultHref="/citoyen/tabs/accueil" color="white"></ion-back-button>
+      <ion-back-button [text]="'Précédent'" defaultHref="/citoyen/tabs/accueil" class="custom-back-button"></ion-back-button>
     </ion-buttons>
     <ion-title color="white">Evénement</ion-title> <!-- Titre minimal pour la toolbar -->
   </ion-toolbar>
@@ -28,7 +28,7 @@
         <ion-icon name="people-outline"></ion-icon> 32 participants
       </p>
 
-      <ion-button fill="solid" color="success" expand="block" shape="round">
+      <ion-button fill="solid" class="custom-participer" expand="block" shape="round">
         Participer
       </ion-button>
     </ion-card-content>
@@ -51,7 +51,7 @@
         <ion-icon name="people-outline"></ion-icon> 18 participants
       </p>
 
-      <ion-button fill="solid" color="success" expand="block" shape="round">
+      <ion-button fill="solid" class="custom-participer" expand="block" shape="round">
         Participer
       </ion-button>
     </ion-card-content>

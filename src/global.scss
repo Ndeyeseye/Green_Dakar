@@ -35,14 +35,6 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
-:root {
-  --ion-color-green-dakar: #2E7D32;  // Vert foncé
-  --ion-color-green-dakar-rgb: 46,125,50;
-  --ion-color-green-dakar-contrast: #ffffff;  // Texte en blanc
-  --ion-color-green-dakar-contrast-rgb: 255,255,255;
-  --ion-color-green-dakar-shade: #286e2c;
-  --ion-color-green-dakar-tint: #438a47;
-}
 
 .ion-color-green-dakar {
   --ion-color-base: var(--ion-color-green-dakar);
@@ -65,5 +57,14 @@ body.dark ion-card,
 body.dark ion-item {
   --background: #1e1e1e;
   color: white;
+}
+
+:root {
+  --ion-color-green-dakar: #1e5631;
+  --ion-color-green-dakar-rgb: 30, 86, 49;
+  --ion-color-green-dakar-contrast: #ffffff;
+  --ion-color-green-dakar-contrast-rgb: 255, 255, 255;
+  --ion-color-green-dakar-shade: #1a4d2c;
+  --ion-color-green-dakar-tint: #366c49;
 }
 

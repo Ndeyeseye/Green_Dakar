@@ -1,8 +1,8 @@
 // src/app/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut, UserCredential } from '@angular/fire/auth';
-import { Firestore, doc, getDoc } from '@angular/fire/firestore';
+import { Auth, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile } from '@angular/fire/auth';
+import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +35,24 @@ export class AuthService {
     } else {
       return null;
     }
+  }
+
+  // ✅ Inscription du citoyen
+  async registerCitoyen(email: string, password: string, fullName: string): Promise<void> {
+    const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+    const user = userCredential.user;
+
+    // Met à jour le nom complet dans Firebase Auth
+    await updateProfile(user, { displayName: fullName });
+
+    // Sauvegarde les infos dans Firestore (dans une collection "citoyens")
+    const userRef = doc(this.firestore, `users/${user.uid}`);
+    await setDoc(userRef, {
+      uid: user.uid,
+      email,
+      fullName,
+      role: 'citoyen',
+      createdAt: new Date()
+    });
   }
 }

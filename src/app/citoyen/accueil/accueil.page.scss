@@ -87,6 +87,17 @@ ion-toolbar[color="green-dakar"] {
 .custom-toolbar {
   --background: #1e5631;
   --color: white;
-  --ion-color-base: #1e5631;
-  color: white;
+}
+
+ion-icon {
+  color: inherit; // très important pour hériter du bouton
+}
+
+.custom-icon-button ion-icon {
+  color: white !important;
+}
+
+.action-button {
+   --background: #1e5631;
+  --color: white;
 }
