@@ -11,7 +11,7 @@ export class SignalementService {
 
   private signalementsCollection = collection(this.firestore, 'signalements');
 
-  // Fonction pour uploader la photo dans Storage et récupérer son URL
+  // Fonction pour uploader la photo dans Firebase Storage et récupérer son URL
   async uploadPhoto(file: Blob): Promise<string> {
     const filePath = `photos-signalements/${Date.now()}_${Math.random().toString(36).substring(2, 15)}.jpg`;
     const storageRef = ref(this.storage, filePath);
@@ -21,12 +21,13 @@ export class SignalementService {
     return downloadURL;
   }
 
-  // Fonction pour ajouter un signalement avec photo (optionnelle)
+  // Fonction pour ajouter un signalement avec photo + UID utilisateur
   async ajouterSignalement(signalement: {
+    uid: string;
     localisation: string;
     typeNuisance: string;
     description: string;
-    photoFile?: File;  // Fichier image optionnel
+    photoFile?: File;
   }) {
     try {
       let photoURL = '';
@@ -36,11 +37,12 @@ export class SignalementService {
       }
 
       await addDoc(this.signalementsCollection, {
+        uid: signalement.uid,                      // 🔐 UID de l'utilisateur
         localisation: signalement.localisation,
         typeNuisance: signalement.typeNuisance,
         description: signalement.description,
-        photoURL,             // URL de la photo dans Storage (vide si pas de photo)
-        date: serverTimestamp(),
+        photoURL: photoURL || null,                // URL de la photo ou null
+        date: serverTimestamp()
       });
     } catch (error) {
       throw error;

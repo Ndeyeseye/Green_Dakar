@@ -6,13 +6,14 @@ import {
   IonList, IonItem, IonLabel, IonButton,
   IonIcon, IonTextarea, IonSelect, IonCard,
   IonSelectOption, IonCardContent, IonButtons,
-  IonBackButton,
+  IonBackButton, ToastController
 } from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
 import { camera, send, location, warning, documentText, images, create } from 'ionicons/icons';
 
 import { SignalementService } from '../../services/signalement.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-signalement',
@@ -42,6 +43,7 @@ import { SignalementService } from '../../services/signalement.service';
 })
 export class SignalementPage implements OnInit {
   private signalementService = inject(SignalementService);
+  private auth = inject(Auth);
 
   localisation: string = 'Chargement...';
   typeNuisance: string = '';
@@ -50,7 +52,7 @@ export class SignalementPage implements OnInit {
 
   @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
 
-  constructor() {
+  constructor(private toastController: ToastController) {
     addIcons({
       camera,
       send,
@@ -121,20 +123,43 @@ export class SignalementPage implements OnInit {
 
   async submitReport() {
     if (!this.typeNuisance || !this.description) {
-      alert('Veuillez remplir tous les champs obligatoires');
+      const toast = await this.toastController.create({
+        message: 'Veuillez remplir tous les champs obligatoires',
+        duration: 3000,
+        color: 'warning',
+      });
+      await toast.present();
+      return;
+    }
+
+    const uid = this.auth.currentUser?.uid;
+    if (!uid) {
+      const toast = await this.toastController.create({
+        message: 'Utilisateur non connecté',
+        duration: 3000,
+        color: 'danger',
+      });
+      await toast.present();
       return;
     }
 
     try {
       await this.signalementService.ajouterSignalement({
+        uid,
         localisation: this.localisation,
         typeNuisance: this.typeNuisance,
         description: this.description,
         photoFile: this.photoFile,
       });
-      alert('Signalement envoyé avec succès');
 
-      // Réinitialiser les champs
+      const toast = await this.toastController.create({
+        message: 'Signalement envoyé avec succès ✅',
+        duration: 3000,
+        color: 'success',
+      });
+      await toast.present();
+
+      // Réinitialisation du formulaire
       this.typeNuisance = '';
       this.description = '';
       this.photoFile = undefined;
@@ -143,7 +168,12 @@ export class SignalementPage implements OnInit {
       }
 
     } catch (error) {
-      alert('Erreur lors de l\'envoi du signalement : ' + error);
+      const toast = await this.toastController.create({
+        message: `Erreur : ${error}`,
+        duration: 3000,
+        color: 'danger',
+      });
+      await toast.present();
     }
   }
 }
