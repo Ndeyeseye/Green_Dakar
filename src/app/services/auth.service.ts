@@ -1,8 +1,9 @@
 // src/app/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile } from '@angular/fire/auth';
+import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile } from '@angular/fire/auth';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { onAuthStateChanged, User } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -55,4 +56,16 @@ export class AuthService {
       createdAt: new Date()
     });
   }
+
+  async getCurrentUser() {
+  return this.auth.currentUser;
+}
+
+getCurrentUserRealtime(): Promise<User | null> {
+  return new Promise(resolve => {
+    onAuthStateChanged(this.auth, user => {
+      resolve(user);
+    });
+  });
+}
 }
