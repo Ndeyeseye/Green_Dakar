@@ -10,7 +10,6 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
-
   {
     path: 'citoyen/tabs',
     loadComponent: () => import('./citoyen/tabs/tabs.page').then(m => m.TabsPage),
@@ -35,6 +34,10 @@ export const routes: Routes = [
         path: 'evenements',
         loadComponent: () => import('./citoyen/evenements/evenements.page').then(m => m.EvenementsPage)
       },
+      {
+        path: 'mes-signalements',
+       loadComponent: () => import('./citoyen/mes-signalements/mes-signalements.page').then( m => m.MesSignalementsPage)
+  },
     ]
   },
 
@@ -107,13 +110,6 @@ export const routes: Routes = [
   {
     path: 'register',
     loadComponent: () => import('./register/register.page').then(m => m.RegisterPage)
-  },
-  {
-    path: 'mes-signalements',
-    loadComponent: () => import('./citoyen/mes-signalements/mes-signalements.page').then( m => m.MesSignalementsPage)
-  },  {
-    path: 'edit-profile',
-    loadComponent: () => import('./citoyen/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
   },
 
 
