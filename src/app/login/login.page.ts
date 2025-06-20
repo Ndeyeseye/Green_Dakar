@@ -11,7 +11,8 @@ import {
   IonIcon,
   IonInput,
   IonButton,
-  IonImg
+  IonImg,
+  ToastController
 } from '@ionic/angular/standalone';
 
 import { Router } from '@angular/router';
@@ -44,8 +45,18 @@ export class LoginPage {
     private authService: AuthService,
     private router: Router,
     private auth: Auth,
-    private firestore: Firestore
+    private firestore: Firestore,
+    private toastController: ToastController
   ) {}
+
+  async showToast(message: string, color: string = 'primary') {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000,
+      color
+    });
+    await toast.present();
+  }
 
   // Connexion classique (email + mot de passe)
   login() {
@@ -56,9 +67,9 @@ export class LoginPage {
 
         this.redirectUserByRole(role);
       })
-      .catch(error => {
+      .catch(async error => {
         console.error('❌ Erreur de connexion :', error.message);
-        alert('Email ou mot de passe incorrect.');
+        await this.showToast('Email ou mot de passe incorrect.', 'danger');
       });
   }
 
@@ -68,7 +79,6 @@ export class LoginPage {
       .then(async (userCredential) => {
         const uid = userCredential.user.uid;
 
-        // Crée le document Firestore pour l'utilisateur anonyme
         await setDoc(doc(this.firestore, `users/${uid}`), {
           role: 'citoyen',
           createdAt: new Date()
@@ -77,14 +87,14 @@ export class LoginPage {
         console.log('✅ Connexion anonyme réussie, redirection...');
         this.redirectUserByRole('visiteur');
       })
-      .catch((error) => {
+      .catch(async (error) => {
         console.error('❌ Erreur de connexion anonyme :', error.message);
-        alert("La connexion anonyme a échoué.");
+        await this.showToast('La connexion anonyme a échoué.', 'danger');
       });
   }
 
   // Rediriger l'utilisateur selon son rôle
-  redirectUserByRole(role: string | null) {
+  async redirectUserByRole(role: string | null) {
     switch (role) {
       case 'admin':
         this.router.navigate(['/admin-dashboard']);
@@ -99,10 +109,10 @@ export class LoginPage {
         this.router.navigate(['/ong/tabs/accueil']);
         break;
       case 'visiteur':
-        this.router.navigate(['/citoyen/tabs/accueil']); // ou une page en lecture seule
+        this.router.navigate(['/citoyen/tabs/accueil']);
         break;
       default:
-        alert('Rôle inconnu ou non défini dans Firestore.');
+        await this.showToast('Rôle inconnu ou non défini dans Firestore.', 'warning');
     }
   }
 
