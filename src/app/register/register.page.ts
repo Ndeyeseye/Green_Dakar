@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // ✅ Essentiel pour ngModel
+import { FormsModule } from '@angular/forms'; // Pour ngModel
 import {
   IonContent,
   IonHeader,
@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule, // ✅ Ajoute ceci
+    FormsModule,
     IonContent,
     IonHeader,
     IonTitle,
@@ -54,10 +54,14 @@ export class RegisterPage implements OnInit {
 
     try {
       await this.authService.registerCitoyen(this.email, this.password, this.fullName);
-      this.router.navigateByUrl('login');
+      this.router.navigateByUrl('/login');
     } catch (err) {
       console.error(err);
       alert("Erreur lors de l'inscription.");
     }
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }

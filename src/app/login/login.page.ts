@@ -105,4 +105,8 @@ export class LoginPage {
         alert('Rôle inconnu ou non défini dans Firestore.');
     }
   }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
 }
