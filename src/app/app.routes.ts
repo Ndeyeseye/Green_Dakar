@@ -35,6 +35,10 @@ export const routes: Routes = [
         path: 'evenements',
         loadComponent: () => import('./citoyen/evenements/evenements.page').then(m => m.EvenementsPage)
       },
+      {
+        path: 'mes-signalements',
+       loadComponent: () => import('./citoyen/mes-signalements/mes-signalements.page').then( m => m.MesSignalementsPage)
+  },
     ]
   },
 
@@ -108,9 +112,6 @@ export const routes: Routes = [
     path: 'register',
     loadComponent: () => import('./register/register.page').then(m => m.RegisterPage)
   },
-  {
-    path: 'mes-signalements',
-    loadComponent: () => import('./citoyen/mes-signalements/mes-signalements.page').then( m => m.MesSignalementsPage)
-  },
+  
 
 ];

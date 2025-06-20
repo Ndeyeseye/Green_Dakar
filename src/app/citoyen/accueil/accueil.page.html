@@ -23,14 +23,15 @@
 
     <ion-card-content>
       <ion-list lines="none" class="custom-list">
-        <ion-item class="custom-item" button detail="false" routerLink="/signalement">
+        <ion-item class="custom-item" button detail="false">
           <ion-icon slot="start" name="warning" color="#E8F5E9"></ion-icon>
-          <ion-label>Signaler un problème</ion-label>
-          <ion-badge color="#E8F5E9" slot="end">12</ion-badge>
+          <ion-label>Nombre de Signalements</ion-label>
+         <ion-badge color="success" slot="end">{{ nombreSignalements }}</ion-badge>
+
         </ion-item>
 
-      <ion-item class="custom-item" button [routerLink]="['/mes-signalements']" detail="false">
-  <ion-icon slot="start" name="map" color="success"></ion-icon>
+      <ion-item class="custom-item" button [routerLink]="['/citoyen/tabs/mes-signalements']" detail="false">
+  <ion-icon slot="start" name="map" color="#E8F5E9"></ion-icon>
   <ion-label>Voir les signalements</ion-label>
 </ion-item>
 

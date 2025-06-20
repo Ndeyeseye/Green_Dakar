@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -19,18 +19,10 @@ import {
   IonList,
   IonItem,
   IonLabel,
-  IonBadge,
-  IonTabs,
-  IonTabBar,
-  IonTabButton
+  IonBadge
 } from '@ionic/angular/standalone';
 
-// Importation des icônes
 import { addIcons } from 'ionicons';
-import { calendar } from 'ionicons/icons';
-
-// Dans le constructor
-addIcons({ calendar });
 import {
   notifications,
   leaf,
@@ -42,18 +34,20 @@ import {
   person
 } from 'ionicons/icons';
 
+// Firebase Auth
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
+import { SignalementService } from '../../services/signalement.service';
+
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.page.html',
   styleUrls: ['./accueil.page.scss'],
   standalone: true,
   imports: [
-    // Modules Angular
     CommonModule,
     FormsModule,
     RouterModule,
 
-    // Composants Ionic
     IonContent,
     IonHeader,
     IonToolbar,
@@ -69,14 +63,15 @@ import {
     IonItem,
     IonLabel,
     IonBadge,
-    // IonTabs,
-    // IonTabBar,
-    // IonTabButton
   ]
 })
-export class AccueilPage {
-  constructor() {
-    // Ajout des icônes utilisées
+export class AccueilPage implements OnInit {
+  nombreSignalements: number = 0;
+
+  constructor(
+    private signalementService: SignalementService,
+    private auth: Auth
+  ) {
     addIcons({
       notifications,
       leaf,
@@ -89,4 +84,13 @@ export class AccueilPage {
     });
   }
 
+  ngOnInit(): void {
+    // Attendre que Firebase Auth ait fini de charger l'utilisateur
+    onAuthStateChanged(this.auth, async (user) => {
+      if (user?.uid) {
+        const signalements = await this.signalementService.getSignalementsByUser(user.uid);
+        this.nombreSignalements = signalements.length;
+      }
+    });
+  }
 }
