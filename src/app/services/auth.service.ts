@@ -1,7 +1,7 @@
 // src/app/services/auth.service.ts
 
 import { Injectable } from '@angular/core';
-import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile, updateEmail } from '@angular/fire/auth';
+import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile, updateEmail, updatePassword } from '@angular/fire/auth';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { onAuthStateChanged, User } from '@angular/fire/auth';
 
@@ -85,6 +85,14 @@ async updateEmailUser(newEmail: string): Promise<void> {
     if (user && newEmail !== user.email) {
       await updateEmail(user, newEmail);
     }
+}
+
+async updatePassword(newPassword: string): Promise<void> {
+  const user = this.auth.currentUser;
+  if (user) {
+    const u = await user;
+    return updatePassword(u, newPassword);
   }
+}
 
 }

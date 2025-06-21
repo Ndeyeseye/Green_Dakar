@@ -40,6 +40,8 @@ export class EditProfilePage implements OnInit {
 
   newName = '';
   currentEmail = '';
+  newPassword = '';
+  confirmPassword = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -52,23 +54,29 @@ export class EditProfilePage implements OnInit {
   }
 
   async save() {
-    if (!this.newName.trim()) {
-      alert('Le nom ne peut pas être vide.');
-      return;
-    }
-
     try {
-      // Mettre à jour l'email si modifié
       await this.authService.updateEmailUser(this.currentEmail);
-
-      // Mettre à jour le nom complet
       await this.authService.updateDisplayName(this.newName);
-
       alert('Profil mis à jour avec succès');
       this.router.navigateByUrl('/citoyen/tabs/profil');
     } catch (error) {
       console.error(error);
       alert("Erreur lors de la mise à jour.");
+    }
+  }
+
+  async updatePassword() {
+    if (this.newPassword !== this.confirmPassword) {
+      alert("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    try {
+      await this.authService.updatePassword(this.newPassword);
+      alert("Mot de passe modifié avec succès.");
+    } catch (err) {
+      console.error(err);
+      alert("Erreur lors du changement de mot de passe.");
     }
   }
 }

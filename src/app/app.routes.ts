@@ -111,6 +111,17 @@ export const routes: Routes = [
     path: 'register',
     loadComponent: () => import('./register/register.page').then(m => m.RegisterPage)
   },
-
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./citoyen/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
+  },
+  {
+    path: 'change-password',
+    loadComponent: () => import('./citoyen/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./citoyen/modals/about/about.page').then( m => m.AboutPage)
+  },
 
 ];
