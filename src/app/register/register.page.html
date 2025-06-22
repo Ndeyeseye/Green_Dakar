@@ -1,51 +1,39 @@
 <ion-content class="register-content">
   <div class="register-container">
-
-    <!-- Logo -->
     <ion-img src="assets/image.jpg" class="logo"></ion-img>
-
-    <!-- Titre -->
     <h2 class="welcome-title">Créer un compte citoyen</h2>
     <p class="subtitle">Rejoignez Green Dakar et contribuez à une ville plus propre</p>
 
-    <!-- Formulaire -->
     <ion-list lines="none" class="form-list">
 
-      <!-- Nom -->
       <ion-item>
         <ion-icon slot="start" name="person-outline"></ion-icon>
         <ion-input type="text" placeholder="Nom complet" [(ngModel)]="fullName" required></ion-input>
       </ion-item>
 
-      <!-- Email -->
       <ion-item>
         <ion-icon slot="start" name="mail-outline"></ion-icon>
         <ion-input type="email" placeholder="Email" [(ngModel)]="email" required></ion-input>
       </ion-item>
 
-      <!-- Mot de passe -->
       <ion-item>
         <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
         <ion-input type="password" placeholder="Mot de passe" [(ngModel)]="password" required></ion-input>
       </ion-item>
 
-      <!-- Confirmation mot de passe -->
       <ion-item>
         <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
         <ion-input type="password" placeholder="Confirmer le mot de passe" [(ngModel)]="confirmPassword" required></ion-input>
       </ion-item>
     </ion-list>
 
-    <!-- Bouton inscription -->
     <ion-button expand="block" class="btn-register" (click)="register()">
       Créer le compte
     </ion-button>
 
-    <!-- Lien retour connexion -->
     <p class="account-text">
       Vous avez déjà un compte ?
       <span class="link-text" (click)="goToLogin()">Se connecter</span>
     </p>
-
   </div>
 </ion-content>
