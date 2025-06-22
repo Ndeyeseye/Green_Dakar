@@ -8,17 +8,28 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+
+
+<div class="profile-photo-section ion-text-center ion-margin-bottom">
+  <ion-avatar class="profile-avatar">
+    <img [src]="userPhoto || 'assets/avatar-placeholder.jpg'" alt="Photo de profil">
+  </ion-avatar>
+  <input type="file" hidden #fileInput (change)="onFileSelected($event)" lines="none" class="form-list">
+  <ion-button size="small" fill="outline" class="text-photo" (click)="fileInput.click()">
+    Changer la photo
+  </ion-button>
+</div>
   <ion-item>
-    <ion-label position="floating">Nom complet</ion-label>
+    <ion-label position="floating" class="succ">Nom complet</ion-label>
     <ion-input [(ngModel)]="newName"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Adresse email</ion-label>
-    <ion-input [(ngModel)]="currentEmail" type="email"></ion-input>
+    <ion-label position="floating" class="succ">Adresse email</ion-label>
+    <ion-input [(ngModel)]="currentEmail" type="email" disabled></ion-input>
   </ion-item>
 
-  <ion-button expand="block" color="success" class="ion-margin-top" (click)="save()">
+  <ion-button expand="block" class="button" class="ion-margin-top" (click)="save()">
     Enregistrer les modifications
   </ion-button>
 </ion-content>

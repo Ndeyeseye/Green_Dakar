@@ -98,24 +98,25 @@ export class ChangePasswordPage implements OnInit {
       }, 1500);
 
     } catch (err: any) {
-  await loading.dismiss();
-  console.error('Erreur complète :', err); // 🔍 Voir le code exact ici
+      await loading.dismiss();
+      console.error('Erreur complète :', err);
+      const errorCode = err?.code || '';
 
-  if (err.code === 'auth/wrong-password') {
-    this.presentToast('Mot de passe actuel incorrect.', 'danger');
-  } else if (err.code === 'auth/too-many-requests') {
-    this.presentToast('Trop de tentatives. Réessayez plus tard.', 'danger');
-  } else {
-    this.presentToast('Erreur lors de la mise à jour du mot de passe.', 'danger');
-  }
+      if (errorCode === 'auth/wrong-password' || errorCode === 'auth/invalid-credential') {
+  this.presentToast('Mot de passe actuel incorrect.', 'danger');
+} else if (errorCode === 'auth/too-many-requests') {
+  this.presentToast('Trop de tentatives. Réessayez plus tard.', 'danger');
+} else {
+  this.presentToast('Erreur inconnue. Veuillez réessayer.', 'danger');
 }
 
+    }
   }
 
   async presentToast(message: string, color: 'success' | 'danger') {
     const toast = await this.toastCtrl.create({
       message,
-      duration: 2000,
+      duration: 3000,
       color,
       position: 'top'
     });

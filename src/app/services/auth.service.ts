@@ -1,18 +1,22 @@
 // src/app/services/auth.service.ts
 
-import { Injectable } from '@angular/core';
-import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile, updateEmail, updatePassword } from '@angular/fire/auth';
+import { Injectable, inject } from '@angular/core';
+import { Auth, user, signInWithEmailAndPassword, signOut, UserCredential, createUserWithEmailAndPassword, updateProfile, updateEmail, updatePassword, EmailAuthProvider, reauthenticateWithCredential } from '@angular/fire/auth';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
 import { onAuthStateChanged, User } from '@angular/fire/auth';
+import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private storage = inject(Storage);
+
   constructor(
     private auth: Auth,
-    private firestore: Firestore
+    private firestore: Firestore,
+    //private storage: Storage
   ) {}
 
   // Connexion
@@ -92,6 +96,24 @@ async updatePassword(newPassword: string): Promise<void> {
   if (user) {
     const u = await user;
     return updatePassword(u, newPassword);
+  }
+}
+
+// Upload vers Firebase Storage
+async uploadProfilePhoto(file: File): Promise<string> {
+  const path = `profile-photos/${Date.now()}_${file.name}`;
+  const storageRef = ref(this.storage, path);
+  await uploadBytes(storageRef, file);
+  return await getDownloadURL(storageRef);
+}
+
+// Mise à jour du profil Firebase Auth
+async updateProfilePhoto(photoURL: string): Promise<void> {
+  const user = await this.auth.currentUser;
+  if (user) {
+    await updateProfile(user, { photoURL });
+    const userRef = doc(this.firestore, `users/${user.uid}`);
+    await setDoc(userRef, { photoURL }, { merge: true });
   }
 }
 
