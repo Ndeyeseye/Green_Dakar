@@ -145,7 +145,18 @@ export const routes: Routes = [
   {
     path: 'ong/register-ong',
     loadComponent: () => import('./ong/register-ong/register-ong.page').then( m => m.RegisterOngPage)
-  }
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./ong/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
+  },  {
+    path: 'about',
+    loadComponent: () => import('./ong/modals/about/about.page').then( m => m.AboutPage)
+  },
+  {
+    path: 'change-password',
+    loadComponent: () => import('./ong/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
+  },
 
 
 ];
