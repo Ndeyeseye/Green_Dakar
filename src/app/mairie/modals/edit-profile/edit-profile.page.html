@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar style="--background: #1e5631;" class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mairie/tabs/profil" text="Retour" class="custom-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modifier le profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="profile-photo-section ion-text-center ion-margin-bottom">
+    <ion-avatar class="profile-avatar">
+      <img [src]="userPhoto || 'assets/avatar-placeholder.jpg'" alt="Photo de profil">
+    </ion-avatar>
+    <input type="file" hidden #fileInput (change)="onFileSelected($event)" />
+    <ion-button size="small" fill="outline" (click)="fileInput.click()">
+      Changer la photo
+    </ion-button>
+  </div>
+
+  <ion-item>
+    <ion-label position="floating">Nom complet</ion-label>
+    <ion-input [(ngModel)]="newName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Adresse email</ion-label>
+    <ion-input [(ngModel)]="email" disabled></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="success" class="ion-margin-top" (click)="save()">
+    Enregistrer les modifications
+  </ion-button>
+
+</ion-content>

@@ -51,16 +51,12 @@
           </ion-card-header>
           <ion-card-content>
             <p>Organisez et coorganisez des événements de nettoyage communautaire</p>
-            <div class="next-event">
-              <ion-chip color="success">
-                <ion-icon name="calendar"></ion-icon>
-                <ion-label>Prochain: 15 Juin</ion-label>
-              </ion-chip>
-            </div>
-            <ion-button expand="block" fill="solid" color="success">
-              <ion-icon name="calendar" slot="start"></ion-icon>
-              Organiser un Clean-up
-            </ion-button>
+
+          <ion-button expand="block" fill="solid" color="success" (click)="goToAddEvent()">
+            <ion-icon name="calendar" slot="start"></ion-icon>
+            Organiser un Clean-up
+          </ion-button>
+
           </ion-card-content>
         </ion-card>
       </ion-col>

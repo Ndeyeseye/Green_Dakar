@@ -59,7 +59,6 @@ export class ProfilPage implements OnInit {
   });
 }
 
-
   logout() {
     this.authService.logout().then(() => {
       this.router.navigateByUrl('/login');

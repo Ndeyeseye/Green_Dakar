@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EventService, EventData } from 'src/app/services/event.service';
+import { Router } from '@angular/router';
 
 // Ionic Standalone Components utilisés dans ton HTML
 import {
@@ -55,6 +57,33 @@ import {
   ],
 })
 export class EvenementsPage implements OnInit {
+  upcomingEvents: EventData[] = [];
+
+  constructor(
+    private eventService: EventService,
+    private router: Router
+  ) {}
+
+  async ngOnInit() {
+    try {
+      this.upcomingEvents = await this.eventService.getEvents();
+    } catch (error) {
+      console.error("Erreur lors du chargement des événements :", error);
+    }
+  }
+
+  onEventClick(event: EventData) {
+    console.log('Événement sélectionné :', event);
+  }
+
+  goToAddEvent() {
+    this.router.navigateByUrl('/ong/ajout-evenement');
+  }
+
+}
+
+
+/*export class EvenementsPage implements OnInit {
   upcomingEvents = [
     {
       date: '15 Juin',
@@ -83,4 +112,4 @@ export class EvenementsPage implements OnInit {
   onEventClick(event: any) {
     console.log('Événement sélectionné :', event);
   }
-}
+}*/

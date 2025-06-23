@@ -105,7 +105,7 @@ export class LoginPage {
       case 'citoyen':
         this.router.navigate(['/citoyen/tabs/accueil']);
         break;
-      case 'ONG':
+      case 'ong':
         this.router.navigate(['/ong/tabs/accueil']);
         break;
       case 'visiteur':

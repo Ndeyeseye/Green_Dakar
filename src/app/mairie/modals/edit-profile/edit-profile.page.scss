@@ -1,0 +1,30 @@
+ion-content {
+  --background: #f4f4f4;
+}
+
+.profile-photo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+ion-item {
+  --background: #ffffff;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+ion-input {
+  color: #333;
+}
+
+ion-button {
+  border-radius: 20px;
+}

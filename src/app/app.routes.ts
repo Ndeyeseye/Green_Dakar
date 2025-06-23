@@ -37,7 +37,7 @@ export const routes: Routes = [
       {
         path: 'mes-signalements',
        loadComponent: () => import('./citoyen/mes-signalements/mes-signalements.page').then( m => m.MesSignalementsPage)
-  },
+      },
     ]
   },
 
@@ -123,5 +123,29 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./citoyen/modals/about/about.page').then( m => m.AboutPage)
   },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./mairie/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./mairie/modals/about/about.page').then( m => m.AboutPage)
+  },
+  {
+    path: 'change-password',
+    loadComponent: () => import('./mairie/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
+  },
+
+
+  {
+  path: 'ong/ajout-evenement',
+  loadComponent: () =>
+    import('./ong/ajout-evenement/ajout-evenement.page').then((m) => m.AjoutEvenementPage),
+  },
+  {
+    path: 'ong/register-ong',
+    loadComponent: () => import('./ong/register-ong/register-ong.page').then( m => m.RegisterOngPage)
+  }
+
 
 ];

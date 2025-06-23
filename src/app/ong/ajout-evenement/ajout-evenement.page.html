@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ong/tabs/evenements"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nouvel événement</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="floating">Titre *</ion-label>
+    <ion-input [(ngModel)]="event.title"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Lieu *</ion-label>
+    <ion-input [(ngModel)]="event.location"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Date *</ion-label>
+    <ion-datetime presentation="date" [(ngModel)]="event.date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea [(ngModel)]="event.description"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Participants (facultatif)</ion-label>
+    <ion-input type="number" [(ngModel)]="event.participants"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="success" class="ion-margin-top" (click)="submit()">
+    Ajouter l'événement
+  </ion-button>
+</ion-content>
