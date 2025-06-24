@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router'; // ✅ RouterModule ici
 import { EventService, EventData } from 'src/app/services/event.service';
-import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';
 
 // ✅ Ionic Standalone Components
 import {
@@ -36,6 +35,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule, // ✅ Ajouté ici pour routerLink
     IonContent,
     IonHeader,
     IonToolbar,
@@ -54,7 +54,7 @@ import {
     IonButton,
     IonGrid,
     IonRow,
-    IonCol
+    IonCol,
   ]
 })
 export class EvenementsPage implements OnInit {
@@ -81,7 +81,6 @@ export class EvenementsPage implements OnInit {
     this.router.navigateByUrl('/ong/ajout-evenement');
   }
 
-  // ➕ Navigation vers la page de proposition de sensibilisation
   goToAddSensibilisation() {
     this.router.navigateByUrl('/ong/tabs/contenus');
   }
