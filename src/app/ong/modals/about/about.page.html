@@ -1,13 +1,54 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>about</ion-title>
+<ion-header>
+  <ion-toolbar class="about-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Précédent" defaultHref="/ong/tabs/profil"></ion-back-button>
+    </ion-buttons>
+    <ion-title>À propos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">about</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="about-content ion-padding">
+  <ion-card class="about-card">
+    <ion-card-header>
+      <ion-card-title>🌿 Green Dakar</ion-card-title>
+      <ion-card-subtitle>Pour une ville plus propre et responsable</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <strong>Green Dakar</strong> est une application mobile citoyenne dédiée à la lutte contre l’insalubrité à Dakar.
+        Elle permet aux citoyens de signaler des problèmes environnementaux (ordures, eaux usées, dépôts sauvages),
+        aux collectivités locales de réagir efficacement, et aux ONG de participer à la sensibilisation écologique.
+      </p>
+      <p>
+        Grâce à une approche collaborative et numérique, Green Dakar renforce l’engagement communautaire
+        pour un cadre de vie durable, propre et connecté.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list class="about-list">
+    <ion-item lines="none">
+      <ion-icon name="information-circle-outline" slot="start" color="success"></ion-icon>
+      <ion-label>
+        <h3>Développé par</h3>
+        <p>Équipe Green Dakar</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="mail-outline" slot="start" color="success"></ion-icon>
+      <ion-label>
+        <h3>Contact</h3>
+        <p>contact&#64;greendakar.sn</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="globe-outline" slot="start" color="success"></ion-icon>
+      <ion-label>
+        <h3>Site web</h3>
+        <p>www.greendakar.sn</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -112,27 +112,27 @@ export const routes: Routes = [
     loadComponent: () => import('./register/register.page').then(m => m.RegisterPage)
   },
   {
-    path: 'edit-profile',
+    path: 'citoyen/edit-profile',
     loadComponent: () => import('./citoyen/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
   },
   {
-    path: 'change-password',
+    path: 'citoyen/change-password',
     loadComponent: () => import('./citoyen/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
   },
   {
-    path: 'about',
+    path: 'citoyen/about',
     loadComponent: () => import('./citoyen/modals/about/about.page').then( m => m.AboutPage)
   },
   {
-    path: 'edit-profile',
+    path: 'mairie/edit-profile',
     loadComponent: () => import('./mairie/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
   },
   {
-    path: 'about',
+    path: 'mairie/about',
     loadComponent: () => import('./mairie/modals/about/about.page').then( m => m.AboutPage)
   },
   {
-    path: 'change-password',
+    path: 'mairie/change-password',
     loadComponent: () => import('./mairie/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
   },
 
@@ -147,24 +147,33 @@ export const routes: Routes = [
     loadComponent: () => import('./ong/register-ong/register-ong.page').then( m => m.RegisterOngPage)
   },
   {
-    path: 'edit-profile',
+    path: 'ong/edit-profile',
     loadComponent: () => import('./ong/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
   },
   {
-    path: 'about',
+    path: 'ong/about',
     loadComponent: () => import('./ong/modals/about/about.page').then( m => m.AboutPage)
   },
   {
-    path: 'change-password',
+    path: 'ong/change-password',
     loadComponent: () => import('./ong/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
   },
   {
+
+    path: 'ajout-sensibilisation',
+    loadComponent: () => import('./ong/ajout-sensibilisation/ajout-sensibilisation.page').then( m => m.AjoutSensibilisationPage)
+  },
+{
     path: 'edit-evenement',
     loadComponent: () => import('./ong/edit-evenement/edit-evenement.page').then( m => m.EditEvenementPage)
   },
 {
   path: 'mairie/alertes',
   loadComponent: () => import('./mairie/pages/alertes/alertes.page').then(m => m.AlertesPage)
-}
+},
+  {
+    path: 'mairie/register-mairie',
+    loadComponent: () => import('./mairie/register-mairie/register-mairie.page').then( m => m.RegisterMairiePage)
+  },
 
 ];

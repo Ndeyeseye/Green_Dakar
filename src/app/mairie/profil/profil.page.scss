@@ -14,7 +14,6 @@
   width: 100px;
   height: 100px;
   margin: 0 auto 10px;
-  color: #1e5631;
 }
 
 .name {
@@ -31,7 +30,7 @@
 
 .role {
   font-size: 0.8rem;
-  color: #6abf69;
+  color:  #1e5631;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
@@ -59,4 +58,8 @@ ion-item {
   border-radius: 12px;
   margin-bottom: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.custom-back-button {
+  --color: white; // Pour le texte ET l'icône
 }

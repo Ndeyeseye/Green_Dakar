@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar style="--background: #1e5631;" class="custom-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/tabs/accueil"></ion-back-button>
+      <ion-back-button [text]="'Précédent'" defaultHref="/mairie/tabs/accueil" class="custom-back-button"></ion-back-button>
     </ion-buttons>
     <ion-title>Profil</ion-title>
   </ion-toolbar>
@@ -10,33 +10,35 @@
 <ion-content [fullscreen]="true">
 
   <div class="profile-header">
-    <ion-avatar class="avatar-large" >
-      <img src="assets/avatar-placeholder.jpg" alt="avatar">
-    </ion-avatar>
-    <p class="role">Autorité locale</p>
-    <h2 class="name">Jean Dupont</h2>
-    <p>mairie.medina&#64;greendakar.sn</p>
+  <ion-avatar class="avatar-large">
+    <img [src]="userPhoto" alt="avatar">
+  </ion-avatar>
+  <h2 class="name">{{ userName }}</h2>
+  <p>{{ userEmail }}</p>
   </div>
-  <ion-list class="profile-options">
-    <ion-item button>
-      <ion-icon slot="start" name="create-outline" color="success"></ion-icon>
-      <ion-label>Modifier le profil</ion-label>
-    </ion-item>
 
-    <ion-item button>
-      <ion-icon slot="start" name="lock-closed-outline" color="success"></ion-icon>
-      <ion-label>Changer le mot de passe</ion-label>
-    </ion-item>
+<ion-list class="profile-options">
+  <ion-item button [routerLink]="'/mairie/edit-profile'">
+    <ion-icon slot="start" name="create-outline" color="success"></ion-icon>
+    <ion-label>Modifier le profil</ion-label>
+  </ion-item>
 
-    <ion-item button>
-      <ion-icon slot="start" name="information-circle-outline" color="success"></ion-icon>
-      <ion-label>À propos</ion-label>
-    </ion-item>
 
-    <ion-item button class="logout">
-      <ion-icon slot="start" name="log-out-outline" color="danger"></ion-icon>
-      <ion-label>Se déconnecter</ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-item button [routerLink]="'/mairie/change-password'">
+    <ion-icon slot="start" name="lock-closed-outline" color="success"></ion-icon>
+    <ion-label>Changer le mot de passe</ion-label>
+  </ion-item>
+
+  <ion-item button [routerLink]="'/mairie/about'">
+    <ion-icon slot="start" name="information-circle-outline" color="success"></ion-icon>
+    <ion-label>À propos</ion-label>
+  </ion-item>
+
+  <ion-item button class="logout" (click)="logout()">
+    <ion-icon slot="start" name="log-out-outline" color="danger"></ion-icon>
+    <ion-label>Se déconnecter</ion-label>
+  </ion-item>
+
+</ion-list>
 
 </ion-content>

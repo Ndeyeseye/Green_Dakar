@@ -130,10 +130,28 @@ async registerOng(email: string, password: string, fullName: string): Promise<vo
     uid: user.uid,
     email,
     fullName,
-    role: 'ong', // ⬅️ C'est ça qui permet la redirection correcte
+    role: 'ong',
     createdAt: new Date()
   });
 }
 
+
+async registerMairie(email: string, password: string, fullName: string): Promise<void> {
+  const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+  const user = userCredential.user;
+
+  // Mettre à jour le nom dans Firebase Auth
+  await updateProfile(user, { displayName: fullName });
+
+  // Enregistrer les données dans Firestore
+  const userRef = doc(this.firestore, `users/${user.uid}`);
+  await setDoc(userRef, {
+    uid: user.uid,
+    email,
+    fullName,
+    role: 'mairie',
+    createdAt: new Date()
+  });
+}
 
 }

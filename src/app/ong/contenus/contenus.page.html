@@ -1,11 +1,20 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success">
+  <ion-toolbar style="--background: #1e5631;">
+    
+    <!-- Bouton retour correctement positionné -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ong/tabs/evenements" text="Précédent" color="light"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Titre avec icône -->
     <ion-title>
-      <ion-icon name="bulb" class="ion-padding-end"></ion-icon>
+      <!-- <ion-icon name="bulb" class="ion-padding-end"></ion-icon> -->
       Contenus de sensibilisation
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
@@ -17,15 +26,15 @@
     </ion-card-title>
   </ion-card-header>
   <ion-card-content class="stats">
-    <ion-chip color="success">
+    <ion-chip style="--color: #1e5631;">
       <ion-icon name="image" color="green"></ion-icon>
       <ion-label>24 Visuels</ion-label>
     </ion-chip>
-    <ion-chip color="success">
+    <ion-chip style="--color: #1e5631;">
       <ion-icon name="videocam" color="green"></ion-icon>
       <ion-label>8 Vidéos</ion-label>
     </ion-chip>
-    <ion-chip color="success">
+    <ion-chip style="--color: #1e5631;">
       <ion-icon name="document-text" color="green"></ion-icon>
       <ion-label>12 Articles</ion-label>
     </ion-chip>
@@ -45,10 +54,16 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="block" fill="solid" color="success" shape="round">
-    <ion-icon name="add" slot="start"></ion-icon>
-    Créer un nouveau contenu
-  </ion-button>
+ <ion-button
+  expand="block"
+  fill="solid"
+  color="success"
+  shape="round"
+  (click)="goToAddSensibilisation()">
+  <ion-icon name="add" slot="start"></ion-icon>
+  Créer un nouveau contenu
+</ion-button>
+
 
 
 </ion-content>

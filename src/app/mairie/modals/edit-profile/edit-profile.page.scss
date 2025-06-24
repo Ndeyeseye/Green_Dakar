@@ -1,5 +1,51 @@
+.custom-back-button {
+  --color: white; // Pour le texte ET l'icône
+}
+
 ion-content {
+  --background: #ffffff; // fond blanc
+}
+
+ion-toolbar {
+  --color: #ffffff; // texte blanc dans la toolbar
+}
+
+ion-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+ion-item {
+  margin-top: 12px;
+  border-radius: 12px;
   --background: #f4f4f4;
+  padding-left: 8px;
+}
+
+ion-label {
+  color: #1e5631; // vert foncé
+  font-weight: 500;
+}
+
+ion-input {
+  font-size: 16px;
+  color: #000000;
+}
+
+ion-button {
+  --border-radius: 10px;
+  --background: #1e5631;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.succ {
+  color: #1e5631;
+}
+
+.button {
+  background-color: #1e5631;
+  color: #f4f4f4;
 }
 
 .profile-photo-section {
@@ -9,22 +55,21 @@ ion-content {
 }
 
 .profile-avatar {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+  width: 120px;
+  height: 120px;
+  margin: 16px auto;
+  border: 3px solid #1e5631;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
-ion-item {
-  --background: #ffffff;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-ion-input {
-  color: #333;
+.text-photo {
+  color: white;
 }
 
 ion-button {
-  border-radius: 20px;
+  --background: #1e5631; /* Fond blanc */
+  --color: #000000; /* Texte noir (facultatif) */
+  border-radius: 8px; /* Facultatif pour l'esthétique */
+  margin-bottom: 10px;
 }

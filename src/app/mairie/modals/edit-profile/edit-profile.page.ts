@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import {
   IonContent,
   IonHeader,
@@ -9,13 +11,14 @@ import {
   IonButtons,
   IonBackButton,
   IonItem,
-  IonLabel,
   IonInput,
-  IonAvatar,
-  IonButton
+  IonLabel,
+  IonList,
+  IonButton,
+  IonAvatar
 } from '@ionic/angular/standalone';
 
-import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -33,50 +36,76 @@ import { AuthService } from 'src/app/services/auth.service';
     IonButtons,
     IonBackButton,
     IonItem,
-    IonLabel,
     IonInput,
-    IonAvatar,
-    IonButton
-  ]
+    IonLabel,
+    IonList,
+    IonButton,
+    IonAvatar
+  ],
 })
 export class EditProfilePage implements OnInit {
-  newName: string = '';
-  email: string = '';
-  userPhoto: string = '';
-  selectedFile?: File;
+  newName = '';
+  currentEmail = '';
+  userPhoto = 'assets/avatar-placeholder.jpg';
+  selectedFile: File | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  @ViewChild('fileInput', { static: false }) fileInputRef!: ElementRef;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastCtrl: ToastController
+  ) {}
 
   async ngOnInit() {
     const user = await this.authService.getCurrentUser();
     if (user) {
       this.newName = user.displayName || '';
-      this.email = user.email || '';
+      this.currentEmail = user.email || '';
       this.userPhoto = user.photoURL || 'assets/avatar-placeholder.jpg';
     }
   }
 
   onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.userPhoto = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   async save() {
     try {
+      if (this.newName.trim()) {
+        await this.authService.updateDisplayName(this.newName);
+      }
+
       if (this.selectedFile) {
         const photoURL = await this.authService.uploadProfilePhoto(this.selectedFile);
         await this.authService.updateProfilePhoto(photoURL);
         this.userPhoto = photoURL;
       }
 
-      if (this.newName.trim()) {
-        await this.authService.updateDisplayName(this.newName);
-      }
-
-      alert('Profil mis à jour avec succès.');
+      this.showToast('Profil mis à jour avec succès.', 'success');
       this.router.navigateByUrl('/mairie/tabs/profil');
-    } catch (error) {
-      console.error('Erreur lors de la mise à jour :', error);
-      alert('Une erreur est survenue.');
+    } catch (err) {
+      console.error(err);
+      this.showToast('Erreur lors de la mise à jour du profil.', 'danger');
     }
+  }
+
+  async showToast(message: string, color: 'success' | 'danger') {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position: 'top',
+      color,
+    });
+    await toast.present();
   }
 }
