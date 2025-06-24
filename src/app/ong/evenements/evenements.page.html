@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="success">
+  <ion-toolbar style="--background: #1e5631;">
     <ion-title>
       <ion-icon name="calendar" class="section-icon"></ion-icon>
       Événements à venir
@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Section Événements à venir -->
   <ion-card class="events-card">
     <ion-card-header>
       <ion-card-title>
@@ -44,27 +45,44 @@
   </ion-card>
 
   <!-- Section Clean-up Days -->
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-md="6">
-        <ion-card class="action-card cleanup-card">
-          <ion-card-header>
-            <div class="card-header-content">
-              <ion-icon name="leaf" class="card-icon"></ion-icon>
-              <ion-card-title color="white">Clean-up Days</ion-card-title>
-            </div>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Organisez et coorganisez des événements de nettoyage communautaire</p>
-
+ <!-- Section Clean-up Days -->
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" size-md="6">
+      <ion-card class="action-section-card">
+        <ion-card-header>
+          <div class="card-header-content">
+            <ion-icon name="leaf" class="card-icon"></ion-icon>
+            <ion-card-title>Clean-up Days</ion-card-title>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Organisez et coorganisez des événements de nettoyage communautaire</p>
           <ion-button expand="block" fill="solid" color="success" (click)="goToAddEvent()">
             <ion-icon name="calendar" slot="start"></ion-icon>
             Organiser un Clean-up
           </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<!-- 📢 Section Sensibilisation -->
+<ion-card class="action-section-card">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="megaphone" class="section-icon"></ion-icon>
+      Proposer un contenu de sensibilisation
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>Partagez une idée ou un contenu (vidéo, affiche, texte, lien...) pour sensibiliser les citoyens sur les enjeux de la propreté et de l’environnement.</p>
+    <ion-button expand="block" fill="outline" color="success" (click)="goToAddSensibilisation()">
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+      Proposer un contenu
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
 </ion-content>
