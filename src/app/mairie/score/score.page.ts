@@ -2,22 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonButtons,
-  IonBackButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonIcon,
-  IonLabel,
-  IonList,
-  IonListHeader,
-  IonItem
+  IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
+  IonBackButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle,
+  IonIcon, IonLabel, IonList, IonListHeader, IonItem
 } from '@ionic/angular/standalone';
+import { SignalementService } from '../../services/signalement.service';
 
 @Component({
   selector: 'app-score',
@@ -25,53 +14,42 @@ import {
   styleUrls: ['./score.page.scss'],
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonButtons,
-    IonBackButton,
-    IonCard,
-    IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
-    IonIcon,
-    IonLabel,
-    IonList,
-    IonListHeader,
-    IonItem
+    CommonModule, FormsModule,
+    IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
+    IonBackButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle,
+    IonIcon, IonLabel, IonList, IonListHeader, IonItem
   ]
 })
 export class ScorePage implements OnInit {
 
-  score: number = 72;
+  score: number = 0;
   niveau: string = '';
   dateMiseAJour: string = '';
-  zones = [
-    { nom: 'Pikine', niveau: 'Insalubrité élevée' },
-    { nom: 'Guédiawaye', niveau: 'Modérée' },
-    { nom: 'Parcelles Assainies', niveau: 'Critique' }
-  ];
+  zones: Array<{ nom: string, score: number, niveau: string }> = [];
 
-  constructor() {}
+  constructor(private signalementService: SignalementService) {}
 
-  ngOnInit() {
-    this.definirNiveau();
+  async ngOnInit() {
     this.dateMiseAJour = this.formatDate(new Date());
+
+    const scores = await this.signalementService.getScoresParZone();
+    this.zones = scores;
+
+    if (scores.length > 0) {
+      const moyenne = scores.reduce((acc, z) => acc + z.score, 0) / scores.length;
+      this.score = Math.round(moyenne);
+      this.niveau = this.getNiveau(this.score);
+    } else {
+      this.score = 0;
+      this.niveau = 'Aucun signalement';
+    }
   }
 
-  definirNiveau() {
-    if (this.score >= 80) {
-      this.niveau = 'Critique';
-    } else if (this.score >= 60) {
-      this.niveau = 'Élevé';
-    } else if (this.score >= 40) {
-      this.niveau = 'Modéré';
-    } else {
-      this.niveau = 'Faible';
-    }
+  getNiveau(score: number): string {
+    if (score >= 80) return 'Faible';
+    if (score >= 60) return 'Modéré';
+    if (score >= 40) return 'Élevé';
+    return 'Critique';
   }
 
   formatDate(date: Date): string {
