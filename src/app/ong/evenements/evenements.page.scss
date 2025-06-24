@@ -75,3 +75,33 @@ ion-card-header{
     background-color: white;
     color: #27ae60;
 }
+section-icon{
+  color: #27ae60
+  ;
+}
+.action-section-card {
+  margin: 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  background-color: #ffffff;
+
+  ion-card-title {
+    color: #27ae60;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+
+    ion-icon {
+      margin-right: 8px;
+    }
+  }
+
+  ion-card-content {
+    background-color: #dfffe2;
+  }
+
+  ion-card-header {
+    background-color: white;
+    color: #27ae60;
+  }
+}
