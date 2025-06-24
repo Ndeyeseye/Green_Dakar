@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EventService, EventData } from 'src/app/services/event.service';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // Ionic Standalone Components utilisés dans ton HTML
 import {
@@ -25,6 +26,7 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
+
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -35,6 +37,7 @@ import {
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     IonContent,
     IonHeader,
     IonToolbar,

@@ -33,8 +33,13 @@
             <ion-icon name="people"></ion-icon>
             <ion-label>{{ event.participants }}</ion-label>
           </ion-chip>
+
+          <ion-button fill="clear" color="medium" [routerLink]="['/edit-evenement', event.id]" slot="end">
+            <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+          </ion-button>
         </ion-item>
       </ion-list>
+
     </ion-card-content>
   </ion-card>
 

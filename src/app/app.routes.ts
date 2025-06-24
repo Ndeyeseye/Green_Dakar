@@ -149,13 +149,18 @@ export const routes: Routes = [
   {
     path: 'edit-profile',
     loadComponent: () => import('./ong/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
-  },  {
+  },
+  {
     path: 'about',
     loadComponent: () => import('./ong/modals/about/about.page').then( m => m.AboutPage)
   },
   {
     path: 'change-password',
     loadComponent: () => import('./ong/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
+  },
+  {
+    path: 'edit-evenement',
+    loadComponent: () => import('./ong/edit-evenement/edit-evenement.page').then( m => m.EditEvenementPage)
   },
 
 
