@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
   ion-content {
     --background:white;
     color:  #1e5631;
@@ -27,6 +27,49 @@
   <google-map
     height="500px"
     width="100%"
+    [center]="center"
+    [zoom]="zoom"
+  >
+    <map-marker
+      *ngFor="let marker of markers"
+      [position]="marker.position"
+      [label]="marker.label"
+    ></map-marker>
+  </google-map>
+</ion-content> -->
+<style>
+  ion-content {
+    --background: white;
+    color: #1e5631;
+  }
+  .page-title {
+    text-align: center;
+    padding: 16px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1e5631;
+  }
+  google-map {
+    display: block;
+    height: 100%;
+    min-height: 500px;
+    width: 100%;
+  }
+</style>
+
+<ion-header>
+  <ion-toolbar style="--background: #1e5631;">
+    <ion-buttons slot="start">
+      <ion-back-button text="Précédent" defaultHref="/citoyen/tabs/accueil" class="custom-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white">Carte</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="height: 100%;">
+  <div class="page-title">Signalements environnementaux</div>
+
+  <google-map
     [center]="center"
     [zoom]="zoom"
   >
