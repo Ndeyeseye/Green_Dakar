@@ -23,7 +23,7 @@ import { Auth } from '@angular/fire/auth';
   imports: [
     CommonModule,
     FormsModule,
-    IonHeader,
+    //IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
