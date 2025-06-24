@@ -162,6 +162,9 @@ export const routes: Routes = [
     path: 'edit-evenement',
     loadComponent: () => import('./ong/edit-evenement/edit-evenement.page').then( m => m.EditEvenementPage)
   },
-
+{
+  path: 'mairie/alertes',
+  loadComponent: () => import('./mairie/pages/alertes/alertes.page').then(m => m.AlertesPage)
+}
 
 ];
