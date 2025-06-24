@@ -18,13 +18,14 @@
     <ion-card-content class="card-content">
 
       <ion-item class="form-item">
-        <ion-label color="green" position="stacked" >Zone à intervenir</ion-label>
-        <ion-select [(ngModel)]="intervention.zone" interface="popover" class="custom-select">
-          <ion-select-option *ngFor="let zone of zonesDisponibles" [value]="zone">
-            {{ zone.nom }}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
+  <ion-label color="green" position="stacked">Zone à intervenir</ion-label>
+  <ion-select [(ngModel)]="intervention.zone" interface="popover" class="custom-select">
+    <ion-select-option *ngFor="let zone of zonesDisponibles$ | async" [value]="zone.localisation">
+      {{ zone.localisation }}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+
 
       <ion-item class="form-item">
         <ion-label position="stacked">Type d’intervention</ion-label>
