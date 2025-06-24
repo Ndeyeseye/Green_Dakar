@@ -1,0 +1,12 @@
+ion-list, ion-item {
+  --background: transparent;
+  background: transparent;
+  color: #000; /* texte en noir */
+}
+ strong{
+    color: green;
+}
+
+.custom-back-button,ion-title {
+  --color: white; // Pour le texte ET l'icône
+}
