@@ -157,6 +157,10 @@ export const routes: Routes = [
     path: 'change-password',
     loadComponent: () => import('./ong/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
   },
+  {
+    path: 'ajout-sensibilisation',
+    loadComponent: () => import('./ong/ajout-sensibilisation/ajout-sensibilisation.page').then( m => m.AjoutSensibilisationPage)
+  },
 
 
 ];

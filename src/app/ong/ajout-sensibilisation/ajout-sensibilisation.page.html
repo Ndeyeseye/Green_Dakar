@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #1e5631;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ong/tabs/evenements" text="Retour" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Créer un contenu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h2 class="form-title">Ajouter un contenu de sensibilisation</h2>
+
+  <form (ngSubmit)="submitForm()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Titre</ion-label>
+        <ion-input [(ngModel)]="form.title" name="title" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Type</ion-label>
+        <ion-select [(ngModel)]="form.type" name="type" interface="popover" required>
+          <ion-select-option value="Visuel">Visuel</ion-select-option>
+          <ion-select-option value="Vidéo">Vidéo</ion-select-option>
+          <ion-select-option value="Article">Article</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea [(ngModel)]="form.description" name="description" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fichier</ion-label>
+        <input type="file" (change)="onFileSelected($event)" />
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" color="success" [disabled]="!form.title || !form.type || !form.description">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Enregistrer
+    </ion-button>
+  </form>
+
+</ion-content>

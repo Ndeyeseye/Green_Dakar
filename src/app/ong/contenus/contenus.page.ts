@@ -1,17 +1,49 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
-  IonCardContent, IonList, IonItem, IonIcon, IonLabel, IonButton, IonChip
-  } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonList,
+  IonItem,
+  IonIcon,
+  IonButtons,
+  IonBackButton,
+  IonLabel,
+  IonButton,
+  IonChip
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-contenus',
   templateUrl: './contenus.page.html',
   styleUrls: ['./contenus.page.scss'],
   standalone: true,
-  imports: [IonHeader, CommonModule, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle,
-  IonCardContent, IonList, IonItem, IonIcon, IonLabel, IonButton, IonChip
+  imports: [
+    IonHeader,
+    CommonModule,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonList,
+    IonItem,
+    IonButtons,
+    IonIcon,
+    IonBackButton,
+    IonLabel,
+    IonButton,
+    IonChip
   ]
 })
 export class ContenusPage implements OnInit {
@@ -22,9 +54,11 @@ export class ContenusPage implements OnInit {
     { title: 'Affiche - Trier ses déchets', type: 'Visuel', date: '05 Juin', icon: 'image', color: 'success' }
   ];
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  goToAddSensibilisation() {
+    this.router.navigateByUrl('/ajout-sensibilisation');
   }
-
 }
