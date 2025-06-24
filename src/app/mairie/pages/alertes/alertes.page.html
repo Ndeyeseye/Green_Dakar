@@ -1,0 +1,27 @@
+<ion-header>
+   <ion-toolbar style="--background: #1e5631;">
+    <ion-buttons slot="start">
+      <ion-back-button text="Précé.." defaultHref="/mairie/tabs/accueil" class="custom-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Liste des alertes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <ion-list *ngIf="alertes$ | async as alertes">
+    <ion-item *ngFor="let alerte of alertes">
+      <ion-label>
+        <h2>{{ alerte.titre }}</h2>
+        
+        <small><strong>Description</strong> {{  alerte.description}}</small><br />
+        <small><strong>typeNuisance</strong> {{ alerte.typeNuisance}}</small><br />
+         <small><strong>localisation:</strong> {{ alerte.localisation }}</small><br />
+<small><strong>Date:</strong> {{ alerte.date | date:'d MMMM y à HH:mm' }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text color="medium" *ngIf="(alertes$ | async)?.length === 0">
+    Aucune alerte enregistrée.
+  </ion-text>
+</ion-content>

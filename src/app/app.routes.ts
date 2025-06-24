@@ -149,7 +149,8 @@ export const routes: Routes = [
   {
     path: 'edit-profile',
     loadComponent: () => import('./ong/modals/edit-profile/edit-profile.page').then( m => m.EditProfilePage)
-  },  {
+  },
+  {
     path: 'about',
     loadComponent: () => import('./ong/modals/about/about.page').then( m => m.AboutPage)
   },
@@ -157,6 +158,19 @@ export const routes: Routes = [
     path: 'change-password',
     loadComponent: () => import('./ong/modals/change-password/change-password.page').then( m => m.ChangePasswordPage)
   },
+  {
+    path: 'alertes',
+    loadComponent: () => import('./mairie/pages/alertes/alertes.page').then( m => m.AlertesPage)
+  },
+{
+  path: 'mairie/alertes',
+  loadComponent: () => import('./mairie/pages/alertes/alertes.page').then(m => m.AlertesPage)
+}
+
+
+  
+
+
 
 
 ];
