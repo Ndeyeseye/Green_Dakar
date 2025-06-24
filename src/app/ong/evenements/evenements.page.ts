@@ -34,6 +34,7 @@ import {
   styleUrls: ['./evenements.page.scss'],
   standalone: true,
   imports: [
+    RouterModule,
     CommonModule,
     FormsModule,
     IonContent,
