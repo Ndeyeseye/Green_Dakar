@@ -23,9 +23,10 @@ import {
 import { Firestore, collection, collectionData,query, orderBy, limit } from '@angular/fire/firestore';
 import { Chart, registerables } from 'chart.js';
 import { Observable } from 'rxjs';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
-Chart.register(...registerables);
+Chart.register(...registerables,ChartDataLabels);
 
 @Component({
   selector: 'app-signalements',
@@ -112,8 +113,20 @@ export class SignalementsPage implements OnInit {
       options: {
         responsive: true,
         plugins: {
-          legend: { position: 'bottom' }
-        }
+  legend: { position: 'bottom' },
+  datalabels: {
+    formatter: (value: number, context: any) => {
+      const total = context.chart.data.datasets[0].data.reduce((a: number, b: number) => a + b, 0);
+      const percentage = (value / total * 100).toFixed(1);
+      return percentage + '%';
+    },
+    color: '#fff',
+    font: {
+      weight: 'bold'
+    }
+  }
+}
+
       }
     });
   }
