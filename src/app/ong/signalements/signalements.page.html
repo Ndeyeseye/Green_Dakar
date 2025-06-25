@@ -11,52 +11,46 @@
 
   <!-- Statistiques générales -->
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-        <ion-icon name="bar-chart-outline"></ion-icon>
-        Statistiques générales
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <div class="chart-placeholder">
-        <ion-icon name="stats-chart" size="large" color="medium"></ion-icon>
-        <p>Graphique des signalements (à intégrer)</p>
-      </div>
-    </ion-card-content>
-  </ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="bar-chart-outline"></ion-icon>
+      Statistiques générales
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <canvas #statChart></canvas>
+  </ion-card-content>
+</ion-card>
+
 
   <!-- Liste des signalements -->
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Signalements récents</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let signalement of signalements">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-icon name="time-outline"></ion-icon>
+      Signalements récents
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let s of signalements.slice(0, 3)">
+        <ion-thumbnail slot="start" *ngIf="s.photoURL">
+          <ion-img [src]="s.photoURL"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ s.typeNuisance || 'Type inconnu' }}</h3>
+          <p>Lieu : {{ s.localisation }}</p>
+          <p>Date : {{ s.date ? (s.date | date:'mediumDate') : (s.createdAt?.seconds * 1000 | date:'mediumDate') }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
 
-          <!-- Affiche image si elle existe -->
-          <ion-thumbnail slot="start" *ngIf="signalement.photoURL">
-            <ion-img [src]="signalement.photoURL"></ion-img>
-          </ion-thumbnail>
 
-          <!-- Sinon icône de signalement -->
-          <ion-icon *ngIf="!signalement.photoURL" name="warning" slot="start" color="danger"></ion-icon>
 
-          <ion-label>
-            <h3>{{ signalement.typeNuisance }}</h3>
-            <p>{{ signalement.localisation }}</p>
-          </ion-label>
-
-          <ion-chip slot="end" color="medium">
-            <ion-icon name="calendar"></ion-icon>
-            <ion-label> {{ signalement.date | date:'shortDate' }}
- </ion-label>
-          </ion-chip>
-
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+    
+  
 
   <ion-button expand="block" fill="outline" color="success">
     <ion-icon name="eye" slot="start"></ion-icon>
