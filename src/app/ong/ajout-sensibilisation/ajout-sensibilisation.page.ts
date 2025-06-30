@@ -1,82 +1,9 @@
-// import { Component, OnInit } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-
-// import {
-//   IonContent,
-//   IonHeader,
-//   IonToolbar,
-//   IonTitle,
-//   IonButtons,
-//   IonBackButton,
-//   IonInput,
-//   IonItem,
-//   IonLabel,
-//   IonList,
-//   IonTextarea,
-//   IonSelect,
-//   IonSelectOption,
-//   IonButton,
-//   IonIcon
-// } from '@ionic/angular/standalone';
-
-// @Component({
-//   selector: 'app-ajout-sensibilisation',
-//   templateUrl: './ajout-sensibilisation.page.html',
-//   styleUrls: ['./ajout-sensibilisation.page.scss'],
-//   standalone: true,
-//   imports: [
-//     CommonModule,
-//     FormsModule,
-//     IonContent,
-//     IonHeader,
-//     IonToolbar,
-//     IonTitle,
-//     IonButtons,
-//     IonBackButton,
-//     IonInput,
-//     IonItem,
-//     IonLabel,
-//     IonList,
-//     IonTextarea,
-//     IonSelect,
-//     IonSelectOption,
-//     IonButton,
-//     IonIcon
-//   ]
-// })
-// export class AjoutSensibilisationPage implements OnInit {
-
-//   form = {
-//     title: '',
-//     type: '',
-//     description: ''
-//   };
-
-//   fichier: File | null = null;
-
-//   constructor() {}
-
-//   ngOnInit() {}
-
-//   onFileSelected(event: any) {
-//     const file = event.target.files[0];
-//     this.fichier = file ?? null;
-//   }
-
-//   submitForm() {
-//     console.log('Titre :', this.form.title);
-//     console.log('Type :', this.form.type);
-//     console.log('Description :', this.form.description);
-//     console.log('Fichier :', this.fichier?.name || 'Aucun fichier sélectionné');
-
-//     // À implémenter : appel au service pour enregistrer les données et uploader le fichier
-//   }
-// }
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ContenuService } from '../../services/contenu.service'; // adapte le chemin selon ton arborescence
+import { ToastController } from '@ionic/angular';
+import { ContenuService } from '../../services/contenu.service'; // adapte le chemin si nécessaire
+
 import {
   IonContent,
   IonHeader,
@@ -129,7 +56,10 @@ export class AjoutSensibilisationPage implements OnInit {
 
   fichier: File | null = null;
 
-  constructor(private contenuService: ContenuService) {}
+  constructor(
+    private contenuService: ContenuService,
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {}
 
@@ -153,12 +83,23 @@ export class AjoutSensibilisationPage implements OnInit {
 
       await this.contenuService.ajouterContenu(data);
 
-      console.log('✅ Contenu ajouté avec succès');
+      await this.presentToast('✅ Contenu ajouté avec succès !');
       this.resetForm();
 
     } catch (err) {
-      console.error('❌ Erreur lors de la soumission du formulaire :', err);
+      console.error('Erreur lors de la soumission :', err);
+      await this.presentToast('❌ Échec de l’enregistrement du contenu', 'danger');
     }
+  }
+
+  async presentToast(message: string, color: string = 'success') {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'top',
+      color
+    });
+    await toast.present();
   }
 
   resetForm() {
